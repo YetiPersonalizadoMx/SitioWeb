@@ -6,6 +6,7 @@
 <script>
 import { RouterView } from 'vue-router'
 import AppLayout from '@/components/global/AppLayout.vue'
+
 export default {
   components: {
     AppLayout,
