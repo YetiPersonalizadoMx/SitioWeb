@@ -117,7 +117,7 @@
               <li @click="$router.push({ name: 'nosotros' })" style="cursor: pointer">Nosotros</li>
               <li>Productos</li>
               <li @click="$router.push({ name: 'contacto' })" style="cursor: pointer">Contacto</li>
-              <li>FAQ</li>
+              <li @click="$router.push({ name: 'faq' })" style="cursor: pointer">FAQ</li>
             </ul>
           </v-col>
           <v-col cols="2"></v-col>

@@ -35,7 +35,9 @@
             </v-list-item-title>
           </v-list-item>
           <v-list-item class="px-0">
-            <v-list-item-title> FAQ </v-list-item-title>
+            <v-list-item-title @click="$router.push({ name: 'faq' })" style="cursor: pointer">
+              FAQ
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-card>
