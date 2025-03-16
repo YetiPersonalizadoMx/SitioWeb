@@ -4,6 +4,8 @@ import PaginaNosotros from '@/views/PaginaNosotros.vue'
 import PaginaPoliticas from '@/views/PaginaPoliticas.vue'
 import PaginaContacto from '@/views/PaginaContacto.vue'
 import PaginaFAQ from '@/views/PaginaFAQ.vue'
+import PostDetails from '../components/blog/PostDetails.vue'
+import PaginaReviews from '@/views/PaginaReviews.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +34,16 @@ const router = createRouter({
       path: '/faq',
       name: 'faq',
       component: PaginaFAQ,
+    },
+    {
+      path: '/post/:id',
+      name: 'postDetails',
+      component: PostDetails,
+    },
+    {
+      path: '/valoracion',
+      name: 'valoracion',
+      component: PaginaReviews,
     },
   ],
 })

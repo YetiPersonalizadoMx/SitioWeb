@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "id": "33d8",
+      "text": "Esta es una prueba de usabilidad del sitio ",
+      "rating": 9
+    },
+    {
+      "id": "5174",
+      "text": "Interfaz de usuario ",
+      "rating": 8
+    }
+  ]
+}

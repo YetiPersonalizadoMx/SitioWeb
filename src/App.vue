@@ -3,16 +3,9 @@
     <RouterView />
   </app-layout>
 </template>
-<script>
+<script setup>
 import { RouterView } from 'vue-router'
 import AppLayout from '@/components/global/AppLayout.vue'
-
-export default {
-  components: {
-    AppLayout,
-    RouterView,
-  },
-}
 </script>
 
 <style scoped></style>

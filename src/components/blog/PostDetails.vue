@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <v-container class="mt-10">
+    <h4 class="text-center mt-10">Quieres dejar un comentario sobre el tema?</h4>
+    <div class="text-center">
+      <button class="btn btn-primary" @click="$router.push({ name: 'faq' })">Regresar</button>
+    </div>
     <div class="card mb-2">
       <div class="card-body">
         {{ post.body }}
@@ -15,7 +19,7 @@
     </div>
     <Comments v-for="comment in getPostcomments(post.id)" :key="comment.id" :comment="comment" />
     <AddComment @commentAdded="commentAdded" />
-  </div>
+  </v-container>
 </template>
 
 <script setup>
@@ -56,4 +60,8 @@ const commentAdded = (comment) => {
 }
 </script>
 
-<style></style>
+<style scoped>
+.btn-primary {
+  background-color: #1c2641;
+}
+</style>

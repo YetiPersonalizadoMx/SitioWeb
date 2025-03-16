@@ -53,11 +53,33 @@
   <div class="container">
     <div class="row my-3">
       <div class="col-md-10 mx-auto">
-        <Header></Header>
+        <BlogHeader></BlogHeader>
       </div>
     </div>
   </div>
 </template>
-<script setup>
-import Header from '../components/blog/BlogHeader.vue'
+<script>
+import BlogHeader from '../components/blog/BlogHeader.vue'
+
+export default {
+  components: {
+    BlogHeader,
+  },
+  mounted() {
+    this.verifyPosts()
+  },
+  methods: {
+    verifyPosts() {
+      //alert('ALgo')
+      const key = 'posts'
+      const value = localStorage.getItem(key)
+      const exists = value !== null
+      if (exists) {
+        //console.log('Si existe')
+      } else {
+        //console.log('no existe')
+      }
+    },
+  },
+}
 </script>

@@ -71,8 +71,8 @@
           </v-btn-toggle>
           <div class="mt-5">
             <v-btn
-              density="compact"
-              class="py-2 px-12"
+              density="default"
+              class="px-10"
               style="text-transform: none; border-radius: 30px"
               variant="outlined"
             >

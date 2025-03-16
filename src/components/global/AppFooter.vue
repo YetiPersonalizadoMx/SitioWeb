@@ -21,7 +21,7 @@
                 >Nosotros</v-card-text
               >
               <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Productos</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Categorias</v-card-text>
+
               <v-card-text
                 class="pt-0 pb-3"
                 style="color: rgb(71, 71, 71); cursor: pointer"
@@ -37,6 +37,14 @@
                   :to="{ name: 'politicas' }"
                 >
                   Politicas del Sitio</router-link
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  :to="{ name: 'valoracion' }"
+                >
+                  Valoración del Sitio</router-link
                 ></v-card-text
               >
             </v-card>

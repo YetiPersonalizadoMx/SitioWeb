@@ -1,112 +1,143 @@
 <template>
   <div class="banner">
-    <div class="parent">
-      <img src="/src/assets/images/banner-bg.jpg" alt="" />
-      <div class="contenido">
-        <h3><span>Gran descuento</span> de Temporada</h3>
-        <p class="descuento">Hasta un 20% de descuento en productos seleccionados.</p>
-        <v-btn
-          variant="outlined"
-          density="compact"
-          height="50"
-          width="160"
-          style="border-radius: 30px; text-transform: none"
-          >Ir a Comprar</v-btn
-        >
-      </div>
-      <v-container>
-        <v-row>
-          <v-col cols="6"> </v-col>
-        </v-row>
-      </v-container>
-    </div>
+    <v-carousel height="auto" show-arrows="hover" cycle hide-delimiter-background>
+      <v-carousel-item src="/src/assets/images/banner-bg.jpg" cover>
+        <div class="banner1-text">
+          <h3><span>Gran descuento</span> de Temporada</h3>
+          <p class="descuento">Hasta un 20% de descuento en productos seleccionados.</p>
+          <v-btn
+            variant="outlined"
+            style="border-radius: 30px; text-transform: none; height: 50px; width: 160px"
+            >Ir a Comprar</v-btn
+          >
+        </div>
+      </v-carousel-item>
+      <v-carousel-item src="/src/assets/images/banner-bg2.jpg" cover>
+        <div class="banner1-text">
+          <h3><span>Productos</span> con descuentos del 20%</h3>
+          <p class="descuento">Desde un 10% a 20% de descuento en productos seleccionados.</p>
+          <v-btn
+            variant="outlined"
+            style="border-radius: 30px; text-transform: none; height: 50px; width: 160px"
+            >Ir a Comprar</v-btn
+          >
+        </div>
+      </v-carousel-item>
+      <v-carousel-item src="/src/assets/images/banner-bg31.jpg" cover>
+        <div class="banner1-text">
+          <h3><span>Semana Santa</span> y descuentos de Temporada</h3>
+          <p class="descuento">Hasta un 10% de descuento en productos seleccionados.</p>
+          <v-btn
+            variant="outlined"
+            style="border-radius: 30px; text-transform: none; height: 50px; width: 160px"
+            >Ir a Comprar</v-btn
+          >
+        </div>
+      </v-carousel-item>
+    </v-carousel>
   </div>
 </template>
-<style>
-.banner {
-  .parent {
-    height: 500px;
-    position: relative;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+<style scoped>
+.banner1-text {
+  color: white;
+  padding: 100px 0 0 100px;
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  width: 600px;
+  h3 {
+    font-size: 50px;
+    font-weight: 900;
+    span {
+      color: #5597fa;
     }
-    .contenido {
-      color: white;
-      padding: 100px 0 0 100px;
-      position: absolute;
-      left: 40px;
-      top: 20px;
-      width: 600px;
-      h3 {
-        font-size: 50px;
-        font-weight: 900;
-        span {
-          color: #9c9ea1;
-        }
-      }
-    }
+  }
+}
 
-    .descuento {
-      margin: 20px 0 40px;
-    }
-  }
-}
 /* Responsive */
-@media (max-width: 990px) {
+@media (max-width: 1500px) {
   .banner {
-    .parent {
-      .contenido {
-        h3 {
-          font-size: 35px;
-        }
-        width: 500px;
-        left: 0;
+    .v-btn {
+      width: 120px !important;
+      height: 36px !important;
+    }
+  }
+
+  .banner1-text {
+    padding: 80px 0 0 80px;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    width: 500px;
+    h3 {
+      font-size: 40px;
+      font-weight: 900;
+      span {
+        font-size: 40px;
       }
     }
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 1200px) {
   .banner {
-    .parent {
-      height: 320px;
-      .contenido {
-        padding-left: 20px;
-        h3 {
-          font-size: 30px;
-        }
-        width: 500px;
-        left: 0;
-        .descuento {
-          font-size: 14px;
-        }
+    .v-btn {
+      width: 100px !important;
+      height: 30px !important;
+      font-size: 12px;
+    }
+  }
+
+  .banner1-text {
+    padding: 60px 0 0 60px;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    width: 400px;
+    h3 {
+      font-size: 30px;
+      font-weight: 900;
+      span {
+        font-size: 30px;
       }
     }
   }
 }
-@media (max-width: 580px) {
+@media (max-width: 1000px) {
   .banner {
-    .parent {
-      height: 250px;
-      .contenido {
-        padding-left: 20px;
-        padding-top: 20px;
-        h3 {
-          font-size: 24px;
-        }
-        width: 0%;
-        left: 0;
-        .descuento {
-          font-size: 12px;
-        }
-        bottom {
-          height: 30px !important;
-          width: 130px !important;
-          font-size: 11px !important;
-        }
+    .v-btn {
+      width: 80px !important;
+      height: 20px !important;
+      font-size: 10px;
+    }
+  }
+
+  .banner1-text {
+    padding: 40px 0 0 40px;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    width: 350px;
+    h3 {
+      font-size: 25px;
+      font-weight: 900;
+      span {
+        font-size: 25px;
       }
     }
+    .descuento {
+      font-size: 14px;
+    }
+  }
+}
+@media (max-width: 850px) {
+  .banner {
+    .v-btn {
+      display: none;
+    }
+  }
+
+  .banner1-text {
+    display: none;
   }
 }
 </style>

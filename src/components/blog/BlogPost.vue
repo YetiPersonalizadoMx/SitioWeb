@@ -1,25 +1,21 @@
 <template>
-  <v-card>
-    <v-card-item>
-      <v-card-text>
-        <router-link :to="`/post/${post.id}`" class="text-decoration-none text-secondary">
-          {{ post.body }}
-        </router-link>
-      </v-card-text>
-      <v-card-actions>
-        <span> <v-icon icon="fa:fas fa-lock"></v-icon> {{ post.username }} </span>
-        <span @click="storeLike" style="cursor: pointer">
-          <i class="bi bi-heart"></i> {{ getPostLikes(post.id) }}
-        </span>
-        <router-link :to="`/post/${post.id}`" class="text-decoration-none text-dark">
-          <span>
-            <v-icon icon="fa:fas fa-lock"></v-icon> {{ getPostcomments(post.id).length }}
-          </span>
-        </router-link>
-        <span> <v-icon icon="fa:fas fa-lock"></v-icon> {{ post.time }} </span>
-      </v-card-actions>
-    </v-card-item>
-  </v-card>
+  <div class="card mb-2">
+    <div class="card-body">
+      <router-link :to="`/post/${post.id}`" class="text-decoration-none text-primary">
+        {{ post.body }}
+      </router-link>
+    </div>
+    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+      <span> <i class="bi bi-person"></i> {{ post.username }} </span>
+      <span @click="storeLike" style="cursor: pointer">
+        <i class="bi bi-heart"></i> {{ getPostLikes(post.id) }}
+      </span>
+      <router-link :to="`/post/${post.id}`" class="text-decoration-none text-dark">
+        <span> <i class="bi bi-chat"></i> {{ getPostcomments(post.id).length }} </span>
+      </router-link>
+      <span> <i class="bi bi-alarm"></i> {{ post.time }} </span>
+    </div>
+  </div>
 </template>
 
 <script setup>

@@ -1,9 +1,9 @@
 <template>
-  <v-row>
-    <v-col>
+  <div class="row my-2">
+    <div class="col-md-12">
       <Post v-for="post in getPosts" :key="post.id" :post="post" />
-    </v-col>
-  </v-row>
+    </div>
+  </div>
 </template>
 
 <script setup>
