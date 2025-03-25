@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "json-server -w reviews.json",
+    "start": "json-server -w db.json",
     "serve": "concurrently \"npm start\" \"npm dev\"",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"

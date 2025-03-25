@@ -18,7 +18,7 @@ export const useReviewsStore = defineStore('reviews', {
         body: JSON.stringify(review),
       })
       const newReview = await response.json()
-      console.log(newReview)
+      //console.log(newReview)
       this.reviews = [newReview, ...this.reviews]
     },
     async fetchReviews() {
@@ -26,7 +26,7 @@ export const useReviewsStore = defineStore('reviews', {
         const reviews = await fetch(`http://localhost:3000/reviews?_sort=id&_order=desc`)
         const data = await reviews.json()
         this.reviews = data
-        console.log(data)
+        //console.log(data)
       } catch (error) {
         console.log(error)
       }

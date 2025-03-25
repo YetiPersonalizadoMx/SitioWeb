@@ -4,9 +4,15 @@
       <v-container fluid>
         <v-row>
           <v-col cols="2" class="pt-4">
-            <img src="/src/assets/images/logo2.jpg" height="40px" alt="" />
+            <img
+              @click="$router.push({ name: 'home' })"
+              src="/src/assets/images/logo2.jpg"
+              height="40px"
+              alt=""
+              style="margin-left: 35px; cursor: pointer"
+            />
           </v-col>
-          <v-col cols="5">
+          <v-col cols="5" lg="4">
             <ul class="links d-flex text-white justify-space-between pt-4" style="list-style: none">
               <li @click="$router.push({ name: 'home' })" style="cursor: pointer">Inicio</li>
               <li @click="$router.push({ name: 'nosotros' })" style="cursor: pointer">Nosotros</li>
@@ -15,7 +21,7 @@
               <li @click="$router.push({ name: 'faq' })" style="cursor: pointer">FAQ</li>
             </ul>
           </v-col>
-          <v-col cols="1"> </v-col>
+          <v-col cols="1" lg="2"> </v-col>
           <v-col cols="4" class="d-flex justify-end align-center" style="gap: 20px">
             <svg data-icon="search" viewBox="0 0 512 512" width="25px" fill="white">
               <path

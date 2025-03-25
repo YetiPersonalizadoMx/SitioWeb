@@ -1,7 +1,7 @@
 <template>
   <div class="productos-swiper pt-10">
     <div class="title mb-10 px-5 d-flex align-center justify-center justify-space-between">
-      <h2 style="font-weight: 200; font-size: 35px" class="text-black">Productos recientes</h2>
+      <h2 style="font-weight: 200; font-size: 35px" class="text-black">Productos con descuento</h2>
       <a href="#" class="text-black" style="font-size: 14px">Todos los productos</a>
     </div>
 
@@ -31,7 +31,7 @@
           </v-hover>
 
           <v-card-text class="pl-0 pb-1">
-            <strong>{{ item.title }} </strong> |
+            <strong>{{ item.title }}</strong> |
             {{
               item.description.split(' ').length <= 8
                 ? item.description

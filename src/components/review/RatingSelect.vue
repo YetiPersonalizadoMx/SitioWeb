@@ -41,20 +41,6 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  text-decoration: non e;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
-  line-height: 1.6;
-  background: #232931;
-} */
-
 ul {
   list-style: none;
 }
@@ -66,17 +52,6 @@ ul {
   width: 100%;
 }
 
-/* header {
-  height: 70px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  background: #212121;
-  color: #4ecca3;
-}
- */
 .card {
   background-color: #fff;
   color: #212121;
@@ -162,13 +137,6 @@ input {
 input:focus {
   outline: none;
 }
-
-/* .feedback-stats {
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
 
 .num-display {
   position: absolute;

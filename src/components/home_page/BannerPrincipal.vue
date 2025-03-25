@@ -1,143 +1,67 @@
 <template>
-  <div class="banner">
-    <v-carousel height="auto" show-arrows="hover" cycle hide-delimiter-background>
-      <v-carousel-item src="/src/assets/images/banner-bg.jpg" cover>
-        <div class="banner1-text">
-          <h3><span>Gran descuento</span> de Temporada</h3>
-          <p class="descuento">Hasta un 20% de descuento en productos seleccionados.</p>
-          <v-btn
-            variant="outlined"
-            style="border-radius: 30px; text-transform: none; height: 50px; width: 160px"
-            >Ir a Comprar</v-btn
-          >
-        </div>
-      </v-carousel-item>
-      <v-carousel-item src="/src/assets/images/banner-bg2.jpg" cover>
-        <div class="banner1-text">
-          <h3><span>Productos</span> con descuentos del 20%</h3>
-          <p class="descuento">Desde un 10% a 20% de descuento en productos seleccionados.</p>
-          <v-btn
-            variant="outlined"
-            style="border-radius: 30px; text-transform: none; height: 50px; width: 160px"
-            >Ir a Comprar</v-btn
-          >
-        </div>
-      </v-carousel-item>
-      <v-carousel-item src="/src/assets/images/banner-bg31.jpg" cover>
-        <div class="banner1-text">
-          <h3><span>Semana Santa</span> y descuentos de Temporada</h3>
-          <p class="descuento">Hasta un 10% de descuento en productos seleccionados.</p>
-          <v-btn
-            variant="outlined"
-            style="border-radius: 30px; text-transform: none; height: 50px; width: 160px"
-            >Ir a Comprar</v-btn
-          >
-        </div>
-      </v-carousel-item>
-    </v-carousel>
+  <div class="video">
+    <video
+      type="video/mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      src="https://yeti-webmedia.imgix.net/m/5468d8f20bd9e99f/original/230028_Article-4_Stories_Feature_Asset_Banner_Video_Desktop.mp4"
+    ></video>
+    <div class="content">
+      <h2>nuevos productos</h2>
+      <h1>Temporada Verano</h1>
+      <v-btn
+        density="default"
+        class="px-12 text-white"
+        size="large"
+        style="text-transform: none; border-radius: 30px"
+        variant="outlined"
+      >
+        Ver Productos</v-btn
+      >
+    </div>
   </div>
 </template>
+
 <style scoped>
-.banner1-text {
-  color: white;
-  padding: 100px 0 0 100px;
+.video {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+video {
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+.content {
   position: absolute;
-  left: 40px;
-  top: 20px;
-  width: 600px;
-  h3 {
-    font-size: 50px;
-    font-weight: 900;
-    span {
-      color: #5597fa;
-    }
+  text-align: center;
+  h1 {
+    font-size: 60px;
+    color: white;
+    font-weight: 600;
+    margin-top: -20px;
+  }
+  h2 {
+    color: white;
   }
 }
 
 /* Responsive */
-@media (max-width: 1500px) {
-  .banner {
-    .v-btn {
-      width: 120px !important;
-      height: 36px !important;
-    }
-  }
-
-  .banner1-text {
-    padding: 80px 0 0 80px;
-    position: absolute;
-    left: 40px;
-    top: 20px;
-    width: 500px;
-    h3 {
-      font-size: 40px;
-      font-weight: 900;
-      span {
-        font-size: 40px;
-      }
-    }
+@media (min-aspect-ratio: 16/9) {
+  video {
+    width: 100%;
+    height: auto;
   }
 }
-@media (max-width: 1200px) {
-  .banner {
-    .v-btn {
-      width: 100px !important;
-      height: 30px !important;
-      font-size: 12px;
-    }
-  }
-
-  .banner1-text {
-    padding: 60px 0 0 60px;
-    position: absolute;
-    left: 40px;
-    top: 20px;
-    width: 400px;
-    h3 {
-      font-size: 30px;
-      font-weight: 900;
-      span {
-        font-size: 30px;
-      }
-    }
-  }
-}
-@media (max-width: 1000px) {
-  .banner {
-    .v-btn {
-      width: 80px !important;
-      height: 20px !important;
-      font-size: 10px;
-    }
-  }
-
-  .banner1-text {
-    padding: 40px 0 0 40px;
-    position: absolute;
-    left: 40px;
-    top: 20px;
-    width: 350px;
-    h3 {
-      font-size: 25px;
-      font-weight: 900;
-      span {
-        font-size: 25px;
-      }
-    }
-    .descuento {
-      font-size: 14px;
-    }
-  }
-}
-@media (max-width: 850px) {
-  .banner {
-    .v-btn {
-      display: none;
-    }
-  }
-
-  .banner1-text {
-    display: none;
+@media (max-aspect-ratio: 16/9) {
+  video {
+    width: auto;
+    height: 100%;
   }
 }
 </style>

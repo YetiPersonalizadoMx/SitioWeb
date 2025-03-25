@@ -2,18 +2,18 @@
   <div class="nav-bar">
     <v-app-bar color="#1C2641" class="py-3" height="fit-content" absolute>
       <v-container fluid>
-        <v-row>
+        <v-row class="align-items-center">
           <v-col cols="3">
             <img
               @click="$router.push({ name: 'home' })"
-              style="cursor: pointer"
+              style="cursor: pointer; margin-left: 30px"
               src="/src/assets/images/logo2.jpg"
               height="50px"
               alt=""
             />
           </v-col>
-          <v-col cols="5">
-            <div class="position-relative" style="width: 90%">
+          <v-col cols="5" lg="6">
+            <div class="position-relative" style="width: 70%">
               <input
                 type="search"
                 name="navSearch"
@@ -34,31 +34,51 @@
               </svg>
             </div>
           </v-col>
-          <v-col cols="4" class="ps-8">
+          <v-col cols="4" lg="3" class="ps-8">
             <div class="parent text-white d-flex justify-space-between align-center">
-              <div class="whatsapp d-flex flex-column align-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  style="height: 35px; fill: white"
-                >
-                  <title>whatsapp</title>
-                  <path
-                    d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z"
-                  />
-                </svg>
-                <span>(33)175 66 478</span>
-              </div>
-              <div class="whislists d-flex flex-column align-center">
-                <svg
-                  viewBox="0 0 512 512"
-                  class="icon icon-wishlist"
-                  style="width: 28px; fill: white"
-                >
-                  <g>
-                    <g>
+              <v-hover v-slot="{ isHovering, props }">
+                <div v-bind="props">
+                  <div
+                    style="cursor: pointer"
+                    class="valoracion d-flex flex-column align-center"
+                    @click="$router.push({ name: 'valoracion' })"
+                  >
+                    <v-badge
+                      location="right top"
+                      :content="store.reviewsCount ? store.reviewsCount : 0"
+                      color="white"
+                      offsetX="-20"
+                      style="z-index: 100"
+                    >
+                    </v-badge>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      :style="`width: 40px; fill: #5597fa; margin-top: -8px; transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
+                    >
+                      <title>Deja una reseña</title>
                       <path
-                        d="M474.644,74.27C449.391,45.616,414.358,29.836,376,29.836c-53.948,0-88.103,32.22-107.255,59.25
+                        d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z"
+                      />
+                    </svg>
+
+                    <span style="color: #5597fa">Reseñas</span>
+                  </div>
+                </div>
+              </v-hover>
+              <v-hover v-slot="{ isHovering, props }">
+                <div v-bind="props">
+                  <div class="whislists d-flex flex-column align-center" style="cursor: pointer">
+                    <svg
+                      viewBox="0 0 512 512"
+                      class="icon icon-wishlist"
+                      :style="`width: 30px; fill: #5597fa;transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
+                    >
+                      <g>
+                        <g>
+                          <path
+                            d="M474.644,74.27C449.391,45.616,414.358,29.836,376,29.836c-53.948,0-88.103,32.22-107.255,59.25
                     c-4.969,7.014-9.196,14.047-12.745,20.665c-3.549-6.618-7.775-13.651-12.745-20.665c-19.152-27.03-53.307-59.25-107.255-59.25
                     c-38.358,0-73.391,15.781-98.645,44.435C13.267,101.605,0,138.213,0,177.351c0,42.603,16.633,82.228,52.345,124.7
                     c31.917,37.96,77.834,77.088,131.005,122.397c19.813,16.884,40.302,34.344,62.115,53.429l0.655,0.574
@@ -70,48 +90,83 @@
                     c2.011,6.175,7.768,10.354,14.262,10.354c6.494,0,12.251-4.179,14.262-10.354c2.404-7.377,9.453-26.595,22.962-45.66
                     c15.06-21.255,41.647-46.593,82.776-46.593c29.621,0,56.66,12.171,76.137,34.27C471.395,115.957,482,145.521,482,177.351
                     C482,254.358,413.255,312.939,309.193,401.614z"
+                          ></path>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <span class="mt-1" style="color: #5597fa">Lista de deseos</span>
+                  </div>
+                </div>
+              </v-hover>
+              <v-hover v-slot="{ isHovering, props }">
+                <div v-bind="props">
+                  <div class="sign-in d-flex flex-column align-center" style="cursor: pointer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      class="icon icon-account"
+                      viewBox="0 0 1024 1024"
+                      :style="`width: 30px; fill: #5597fa;transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
+                    >
+                      <title>user</title>
+                      <path
+                        class="path1"
+                        d="M486.4 563.2c-155.275 0-281.6-126.325-281.6-281.6s126.325-281.6 281.6-281.6 281.6 126.325 281.6 281.6-126.325 281.6-281.6 281.6zM486.4 51.2c-127.043 0-230.4 103.357-230.4 230.4s103.357 230.4 230.4 230.4c127.042 0 230.4-103.357 230.4-230.4s-103.358-230.4-230.4-230.4z"
                       ></path>
-                    </g>
-                  </g>
-                </svg>
-                <span class="mt-1">Lista de deseos</span>
-              </div>
-              <div class="sign-in d-flex flex-column align-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  style="height: 30px; fill: white; stroke-width: 1"
-                >
-                  <title>account-outline</title>
-                  <path
-                    d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z"
-                  />
-                </svg>
-                <span class="mt-1">Registrarme</span>
-              </div>
-              <div
-                class="cart d-flex flex-column align-center"
-                style="cursor: pointer"
-                @click="openCart"
-              >
-                <v-badge location="right top" content="2" color="white" offsetX="-14"> </v-badge>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  style="height: 28px; fill: white"
-                >
-                  <title>Ir al Carrito</title>
-                  <path
-                    d="M17,18A2,2 0 0,1 19,20A2,2 0 0,1 17,22C15.89,22 15,21.1 15,20C15,18.89 15.89,18 17,18M1,2H4.27L5.21,4H20A1,1 0 0,1 21,5C21,5.17 20.95,5.34 20.88,5.5L17.3,11.97C16.96,12.58 16.3,13 15.55,13H8.1L7.2,14.63L7.17,14.75A0.25,0.25 0 0,0 7.42,15H19V17H7C5.89,17 5,16.1 5,15C5,14.65 5.09,14.32 5.24,14.04L6.6,11.59L3,4H1V2M7,18A2,2 0 0,1 9,20A2,2 0 0,1 7,22C5.89,22 5,21.1 5,20C5,18.89 5.89,18 7,18M16,11L18.78,6H6.14L8.5,11H16Z"
-                  />
-                </svg>
-                <span class="mt-1">Carrito</span>
-              </div>
+                      <path
+                        class="path2"
+                        d="M896 1024h-819.2c-42.347 0-76.8-34.451-76.8-76.8 0-3.485 0.712-86.285 62.72-168.96 36.094-48.126 85.514-86.36 146.883-113.634 74.957-33.314 168.085-50.206 276.797-50.206 108.71 0 201.838 16.893 276.797 50.206 61.37 27.275 110.789 65.507 146.883 113.634 62.008 82.675 62.72 165.475 62.72 168.96 0 42.349-34.451 76.8-76.8 76.8zM486.4 665.6c-178.52 0-310.267 48.789-381 141.093-53.011 69.174-54.195 139.904-54.2 140.61 0 14.013 11.485 25.498 25.6 25.498h819.2c14.115 0 25.6-11.485 25.6-25.6-0.006-0.603-1.189-71.333-54.198-140.507-70.734-92.304-202.483-141.093-381.002-141.093z"
+                      ></path>
+                    </svg>
+
+                    <span class="mt-1" style="color: #5597fa">Registrarme</span>
+                  </div>
+                </div>
+              </v-hover>
+              <v-hover v-slot="{ isHovering, props }">
+                <div v-bind="props">
+                  <div
+                    class="cart d-flex flex-column align-center"
+                    style="cursor: pointer"
+                    @click="openCart"
+                  >
+                    <v-badge
+                      location="right top"
+                      content="2"
+                      color="white"
+                      offsetX="-14"
+                      style="z-index: 100"
+                    >
+                    </v-badge>
+                    <svg
+                      viewBox="0 0 1024 1024"
+                      xmlns="http://www.w3.org/2000/svg"
+                      :style="`width: 30px; fill: #5597fa;transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
+                    >
+                      <path
+                        class="path1"
+                        d="M409.6 1024c-56.464 0-102.4-45.936-102.4-102.4s45.936-102.4 102.4-102.4S512 865.136 512 921.6 466.064 1024 409.6 1024zm0-153.6c-28.232 0-51.2 22.968-51.2 51.2s22.968 51.2 51.2 51.2 51.2-22.968 51.2-51.2-22.968-51.2-51.2-51.2z"
+                      ></path>
+                      <path
+                        class="path2"
+                        d="M768 1024c-56.464 0-102.4-45.936-102.4-102.4S711.536 819.2 768 819.2s102.4 45.936 102.4 102.4S824.464 1024 768 1024zm0-153.6c-28.232 0-51.2 22.968-51.2 51.2s22.968 51.2 51.2 51.2 51.2-22.968 51.2-51.2-22.968-51.2-51.2-51.2z"
+                      ></path>
+                      <path
+                        class="path3"
+                        d="M898.021 228.688C885.162 213.507 865.763 204.8 844.8 204.8H217.954l-5.085-30.506C206.149 133.979 168.871 102.4 128 102.4H76.8c-14.138 0-25.6 11.462-25.6 25.6s11.462 25.6 25.6 25.6H128c15.722 0 31.781 13.603 34.366 29.112l85.566 513.395C254.65 736.421 291.929 768 332.799 768h512c14.139 0 25.6-11.461 25.6-25.6s-11.461-25.6-25.6-25.6h-512c-15.722 0-31.781-13.603-34.366-29.11l-12.63-75.784 510.206-44.366c39.69-3.451 75.907-36.938 82.458-76.234l34.366-206.194c3.448-20.677-1.952-41.243-14.813-56.424zm-35.69 48.006l-34.366 206.194c-2.699 16.186-20.043 32.221-36.39 33.645l-514.214 44.714-50.874-305.246h618.314c5.968 0 10.995 2.054 14.155 5.782 3.157 3.73 4.357 9.024 3.376 14.912z"
+                      ></path>
+                    </svg>
+
+                    <span class="mt-1" style="color: #5597fa">Carrito</span>
+                  </div>
+                </div>
+              </v-hover>
             </div>
           </v-col>
         </v-row>
         <v-row class="mt-6">
-          <v-col cols="5">
+          <v-col cols="5" lg="4">
             <ul class="links d-flex text-white justify-space-between" style="list-style: none">
               <li @click="$router.push({ name: 'home' })" style="cursor: pointer">Inicio</li>
               <li @click="$router.push({ name: 'nosotros' })" style="cursor: pointer">Nosotros</li>
@@ -120,23 +175,25 @@
               <li @click="$router.push({ name: 'faq' })" style="cursor: pointer">FAQ</li>
             </ul>
           </v-col>
-          <v-col cols="2"></v-col>
+          <v-col cols="2" lg="3"></v-col>
           <v-col cols="5" class="d-flex justify-end">
             <div class="help d-flex align-center text-white" style="gap: 5px">
               <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="user-headset"
+                role="img"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
+                viewBox="0 0 448 512"
+                class="svg-inline--fa fa-user-headset fa-w-14 fa-3x"
                 style="width: 20px"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
-                />
+                  fill="currentColor"
+                  d="M320 352h-23.1a174.08 174.08 0 0 1-145.8 0H128A128 128 0 0 0 0 480a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32 128 128 0 0 0-128-128zM48 224a16 16 0 0 0 16-16v-16c0-88.22 71.78-160 160-160s160 71.78 160 160v16a80.09 80.09 0 0 1-80 80h-32a32 32 0 0 0-32-32h-32a32 32 0 0 0 0 64h96a112.14 112.14 0 0 0 112-112v-16C416 86.13 329.87 0 224 0S32 86.13 32 192v16a16 16 0 0 0 16 16zm160 0h32a64 64 0 0 1 55.41 32H304a48.05 48.05 0 0 0 48-48v-16a128 128 0 0 0-256 0c0 40.42 19.1 76 48.35 99.47-.06-1.17-.35-2.28-.35-3.47a64.07 64.07 0 0 1 64-64z"
+                  class=""
+                ></path>
               </svg>
 
               <span>Ayuda</span>
@@ -147,6 +204,11 @@
     </v-app-bar>
   </div>
 </template>
+<script setup>
+import { useReviewsStore } from '../stores/reviews'
+const store = useReviewsStore()
+//console.log(store)
+</script>
 <script>
 export default {
   inject: ['Emitter'],

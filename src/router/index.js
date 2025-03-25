@@ -46,6 +46,9 @@ const router = createRouter({
       component: PaginaReviews,
     },
   ],
+  scrollBehavior() {
+    return { top: 0 }
+  },
 })
 
 export default router
