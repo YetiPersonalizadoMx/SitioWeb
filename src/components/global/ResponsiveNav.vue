@@ -50,7 +50,14 @@
                 </g>
               </g>
             </svg>
-            <v-badge location="right top" content="2" color="black" offsetY="10"> </v-badge>
+            <v-badge
+              location="right top"
+              :content="cartItems.length"
+              color="black"
+              offsetY="10"
+              v-if="cartItems.length"
+            >
+            </v-badge>
           </v-col>
         </v-row>
       </v-container>
@@ -58,6 +65,8 @@
   </div>
 </template>
 <script>
+import { cartStore } from '../stores/cart'
+import { mapState } from 'pinia'
 export default {
   inject: ['Emitter'],
   methods: {
@@ -67,6 +76,9 @@ export default {
     openMenu() {
       this.Emitter.emit('openMenu')
     },
+  },
+  computed: {
+    ...mapState(cartStore, ['cartItems']),
   },
 }
 </script>

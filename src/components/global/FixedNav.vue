@@ -30,10 +30,17 @@
             </svg>
             <div
               class="cart d-flex flex-column align-center"
-              style="cursor: pointer"
+              :style="`cursor: pointer; pointer-events: ${$route.name == 'carrito' ? 'none' : 'unset'};`"
               @click="openCart"
             >
-              <v-badge location="right top" content="2" color="white" offsetX="-14"> </v-badge>
+              <v-badge
+                location="right top"
+                :content="cartItems.length"
+                color="white"
+                offsetX="-14"
+                v-if="cartItems.length"
+              >
+              </v-badge>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -53,12 +60,17 @@
 </template>
 
 <script>
+import { cartStore } from '../stores/cart'
+import { mapState } from 'pinia'
 export default {
   inject: ['Emitter'],
   methods: {
     openCart() {
       this.Emitter.emit('openCart')
     },
+  },
+  computed: {
+    ...mapState(cartStore, ['cartItems']),
   },
 }
 </script>

@@ -4,12 +4,12 @@
       location="left"
       temporary
       v-model="drawer"
-      width="370"
+      :width="windowWidth <= 787 ? windowWidth / 2 : 370"
       class="px-5 pt-0 cart-drawer"
     >
       <v-card class="px-0" elevation="0">
         <v-card-title
-          class="pl-5 pr-2 d-flex justify-space-between align-center w-100"
+          class="pl-0 pr-2 d-flex justify-space-between align-center w-100"
           style="font-size: 17px; font-weight: bold"
         >
           Menu
@@ -46,6 +46,11 @@
 </template>
 <script>
 export default {
+  props: {
+    windowWidth: {
+      type: Number,
+    },
+  },
   data: () => ({
     drawer: false,
   }),

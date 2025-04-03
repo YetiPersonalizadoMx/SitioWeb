@@ -5,6 +5,7 @@ export const moduloProductos = defineStore('moduloProductos', {
   state: () => ({
     loNuevo: [],
     conDescuento: [],
+    singleProduct: '',
   }),
   actions: {
     async getProducts() {
@@ -17,10 +18,16 @@ export const moduloProductos = defineStore('moduloProductos', {
       } catch (error) {
         console.log(error)
       }
-      /* await axios
-        .get('http://localhost:3000/productos')
-        .then((res) => (this.loNuevo = res.data.products.slice(0, 8)))
-        .catch((err) => console.log(err)) */
+    },
+    async getProduct(productId) {
+      try {
+        const producto = await fetch(`http://localhost:3000/productos/${productId}`)
+        const dato = await producto.json()
+        this.singleProduct = dato
+        //console.log(dato)
+      } catch (error) {
+        console.log(error)
+      }
     },
   },
 })

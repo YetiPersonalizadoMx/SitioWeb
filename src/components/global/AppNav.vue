@@ -128,15 +128,16 @@
                 <div v-bind="props">
                   <div
                     class="cart d-flex flex-column align-center"
-                    style="cursor: pointer"
+                    :style="`cursor: pointer; pointer-events: ${$route.name == 'carrito' ? 'none' : 'unset'};`"
                     @click="openCart"
                   >
                     <v-badge
                       location="right top"
-                      content="2"
+                      :content="cartItems.length"
                       color="white"
                       offsetX="-14"
                       style="z-index: 100"
+                      v-if="cartItems.length"
                     >
                     </v-badge>
                     <svg
@@ -210,12 +211,17 @@ const store = useReviewsStore()
 //console.log(store)
 </script>
 <script>
+import { cartStore } from '../stores/cart'
+import { mapState } from 'pinia'
 export default {
   inject: ['Emitter'],
   methods: {
     openCart() {
       this.Emitter.emit('openCart')
     },
+  },
+  computed: {
+    ...mapState(cartStore, ['cartItems']),
   },
 }
 </script>

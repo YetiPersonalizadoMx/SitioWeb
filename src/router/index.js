@@ -45,6 +45,21 @@ const router = createRouter({
       name: 'valoracion',
       component: PaginaReviews,
     },
+    {
+      path: '/products/product-details/:productId',
+      name: 'product-details',
+      component: () => import('@/views/DetallesProducto.vue'),
+    },
+    {
+      path: '/carrito',
+      name: 'carrito',
+      component: () => import('@/views/PaginaCarrito.vue'),
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: () => import('@/views/PaginaPago.vue'),
+    },
   ],
   scrollBehavior() {
     return { top: 0 }

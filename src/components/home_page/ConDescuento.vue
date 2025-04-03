@@ -12,14 +12,14 @@
       :space-between="35"
       class="pb-9 px-5"
       :navigation="{ prevIcon: '.swiper-prev', nextIcon: '.swiper-next' }"
-      :autoplay="{ delay: 3000, pauseOnMouseEner: true, disableOnInteraction: false }"
+      :autoplay="{ delay: 3000, pauseOnMouseEnter: true, disableOnInteraction: false }"
       :breakpoints="breakpoints"
       :loop="true"
     >
       <swiper-slide v-for="item in productos" :key="item.id">
         <v-card elevation="0" class="pb-5">
           <v-hover v-slot="{ isHovering, props }">
-            <div class="img-parent" style="width: 300px; overflow: hidden">
+            <div class="img-parent position-relative" style="width: 300px; overflow: hidden">
               <img
                 :src="showenItem[item.title] ? showenItem[item.title] : item.thumbnail"
                 alt=""
@@ -27,6 +27,26 @@
                 :style="`width: 300px; transition: 0.5s all ease-in-out; cursor:pointer; scale: ${isHovering ? 1.05 : 1}`"
                 v-bind="props"
               />
+              <v-btn
+                density="compact"
+                width="100"
+                height="30"
+                variant="outlined"
+                class="bg-white quick-view-btn"
+                style="
+                  text-transform: none;
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  transform: translate(-50%, -50%);
+                  border-radius: 30px;
+                  font-size: 12px;
+                  transition: 0.2 all ease-in-out;
+                  opacity: 0;
+                "
+                @click="openQuickView(item)"
+                >Vista rapida</v-btn
+              >
             </div>
           </v-hover>
 
@@ -53,7 +73,7 @@
               >${{ Math.ceil(item.price - item.price * (item.discountPercentage / 100)) }}</span
             >
           </v-card-text>
-          <v-btn-toggle v-model="showenItem[item.title]">
+          <v-btn-toggle v-model="showenItem[item.title]" mandatory>
             <v-btn
               v-for="(pic, i) in item.images"
               :value="pic"
@@ -76,6 +96,7 @@
               size="large"
               style="text-transform: none; border-radius: 30px"
               variant="outlined"
+              @click="$router.push({ name: 'product-details', params: { productId: item.id } })"
             >
               Selecciona Opcion</v-btn
             >
@@ -124,6 +145,12 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import { Pagination, Navigation, Autoplay } from 'swiper'
 
 export default {
+  inject: ['Emitter'],
+  methods: {
+    openQuickView(product) {
+      this.Emitter.emit('openQuickView', product)
+    },
+  },
   props: {
     productos: {
       type: Array,
@@ -178,8 +205,13 @@ export default {
     }
   }
   .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
+  }
+}
+.img-parent:hover {
+  .quick-view-btn {
+    opacity: 1 !important;
   }
 }
 /* Responsive */

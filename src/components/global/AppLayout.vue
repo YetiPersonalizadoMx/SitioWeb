@@ -1,19 +1,19 @@
 <template>
   <div class="layout">
     <v-layout class="position-relative">
-      <CartDrawer />
-      <MenuDrawer />
+      <CartDrawer :windowWidth="windowWidth" />
+      <MenuDrawer :windowWidth="windowWidth" />
       <v-main
         :style="`padding-top: ${
-          $route.name == 'check_out' ? '0px' : windowWidth <= 990 ? '60px' : '150px'
+          $route.name == 'checkout' ? '0px' : windowWidth <= 990 ? '60px' : '150px'
         }`"
       >
         <slot></slot>
       </v-main>
-      <AppNav v-show="$route.name != 'check_out' && !showFixed && windowWidth > 990" />
-      <ResponsiveNav v-show="windowWidth <= 990 && $route.name != 'check_out'" />
-      <FixedNav v-show="$route.name != 'check_out' && showFixed && windowWidth > 990" />
-      <AppFooter v-show="$route.name != 'check_out'" />
+      <AppNav v-show="$route.name != 'checkout' && !showFixed && windowWidth > 990" />
+      <ResponsiveNav v-show="windowWidth <= 990 && $route.name != 'checkout'" />
+      <FixedNav v-show="$route.name != 'checkout' && showFixed && windowWidth > 990" />
+      <AppFooter v-show="$route.name != 'checkout'" />
     </v-layout>
   </div>
 </template>
