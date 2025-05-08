@@ -5,6 +5,7 @@ export const moduloProductos = defineStore('moduloProductos', {
   state: () => ({
     loNuevo: [],
     conDescuento: [],
+    todosProductos: [],
     singleProduct: '',
   }),
   actions: {
@@ -14,6 +15,7 @@ export const moduloProductos = defineStore('moduloProductos', {
         const datos = await productos.json()
         this.loNuevo = datos.slice(0, 8)
         this.conDescuento = datos.slice(8, 13)
+        this.todosProductos = datos
         //console.log(datos)
       } catch (error) {
         console.log(error)

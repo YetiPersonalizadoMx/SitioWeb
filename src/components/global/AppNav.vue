@@ -171,14 +171,20 @@
             <ul class="links d-flex text-white justify-space-between" style="list-style: none">
               <li @click="$router.push({ name: 'home' })" style="cursor: pointer">Inicio</li>
               <li @click="$router.push({ name: 'nosotros' })" style="cursor: pointer">Nosotros</li>
-              <li>Productos</li>
+              <li @click="$router.push({ name: 'productos' })" style="cursor: pointer">
+                Productos
+              </li>
               <li @click="$router.push({ name: 'contacto' })" style="cursor: pointer">Contacto</li>
               <li @click="$router.push({ name: 'faq' })" style="cursor: pointer">FAQ</li>
             </ul>
           </v-col>
           <v-col cols="2" lg="3"></v-col>
           <v-col cols="5" class="d-flex justify-end">
-            <div class="help d-flex align-center text-white" style="gap: 5px">
+            <div
+              class="help d-flex align-center text-white"
+              style="gap: 5px; cursor: pointer"
+              @click="$router.push({ name: 'faq' })"
+            >
               <svg
                 aria-hidden="true"
                 focusable="false"

@@ -28,7 +28,10 @@
                 @click="$router.push({ name: 'contacto' })"
                 >Contacto</v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+              <v-card-text
+                class="pt-0 pb-3"
+                style="color: rgb(71, 71, 71); cursor: pointer"
+                @click="$router.push({ name: 'carrito' })"
                 >Carrito de compras</v-card-text
               >
               <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
@@ -53,23 +56,73 @@
           <v-col cols="12" sm="6" md="4" lg="3">
             <v-card elevation="0" color="transparent">
               <v-card-title style="font-size: 14px; font-weight: 900"> CATEGORIAS </v-card-title>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Botellas</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Vasos</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Tazas</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Tarros</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Prensas</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Jarras</v-card-text>
               <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                >Enfriadores</v-card-text
+                ><router-link
+                  :to="{ name: 'productos' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Botellas</router-link
+                >
+              </v-card-text>
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'productos' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Vasos</router-link
+                ></v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Cocteleras</v-card-text>
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'productos' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Tazas</router-link
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'productos' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Tarros</router-link
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'productos' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Prensas</router-link
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'productos' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Jarras</router-link
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'productos' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Enfriadores</router-link
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'productos' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Cocteleras</router-link
+                ></v-card-text
+              >
             </v-card>
           </v-col>
           <v-col cols="12" sm="6" md="4" lg="3">
             <v-card elevation="0" color="transparent">
               <v-card-title style="font-size: 14px; font-weight: 900"> CLIENTES </v-card-title>
               <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                >Preguntas Frecuentes</v-card-text
+                ><router-link
+                  :to="{ name: 'faq' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Prefuntas frecuentes</router-link
+                ></v-card-text
               >
               <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
                 >Mis pedidos</v-card-text
@@ -79,9 +132,27 @@
               >
               <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Busqueda</v-card-text>
               <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Consultas</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Ubicacion</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Pagos</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Garantias</v-card-text>
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'contacto' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Ubicación</router-link
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'faq' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Pagos</router-link
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
+                ><router-link
+                  :to="{ name: 'faq' }"
+                  style="text-decoration: none; color: rgb(71, 71, 71)"
+                  >Garantías</router-link
+                ></v-card-text
+              >
             </v-card>
           </v-col>
           <v-col cols="12" sm="6" md="4" lg="3">

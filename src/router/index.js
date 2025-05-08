@@ -60,6 +60,11 @@ const router = createRouter({
       name: 'checkout',
       component: () => import('@/views/PaginaPago.vue'),
     },
+    {
+      path: '/productos',
+      name: 'productos',
+      component: () => import('@/views/PaginaProductos.vue'),
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
