@@ -101,27 +101,129 @@
               </v-hover>
               <v-hover v-slot="{ isHovering, props }">
                 <div v-bind="props">
-                  <div class="sign-in d-flex flex-column align-center" style="cursor: pointer">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      class="icon icon-account"
-                      viewBox="0 0 1024 1024"
-                      :style="`width: 30px; fill: #5597fa;transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
-                    >
-                      <title>user</title>
-                      <path
-                        class="path1"
-                        d="M486.4 563.2c-155.275 0-281.6-126.325-281.6-281.6s126.325-281.6 281.6-281.6 281.6 126.325 281.6 281.6-126.325 281.6-281.6 281.6zM486.4 51.2c-127.043 0-230.4 103.357-230.4 230.4s103.357 230.4 230.4 230.4c127.042 0 230.4-103.357 230.4-230.4s-103.358-230.4-230.4-230.4z"
-                      ></path>
-                      <path
-                        class="path2"
-                        d="M896 1024h-819.2c-42.347 0-76.8-34.451-76.8-76.8 0-3.485 0.712-86.285 62.72-168.96 36.094-48.126 85.514-86.36 146.883-113.634 74.957-33.314 168.085-50.206 276.797-50.206 108.71 0 201.838 16.893 276.797 50.206 61.37 27.275 110.789 65.507 146.883 113.634 62.008 82.675 62.72 165.475 62.72 168.96 0 42.349-34.451 76.8-76.8 76.8zM486.4 665.6c-178.52 0-310.267 48.789-381 141.093-53.011 69.174-54.195 139.904-54.2 140.61 0 14.013 11.485 25.498 25.6 25.498h819.2c14.115 0 25.6-11.485 25.6-25.6-0.006-0.603-1.189-71.333-54.198-140.507-70.734-92.304-202.483-141.093-381.002-141.093z"
-                      ></path>
-                    </svg>
+                  <v-dialog v-model="dialog" max-width="600">
+                    <template v-slot:activator="{ props: activatorProps }">
+                      <v-btn prepend-icon="" stacked v-bind="activatorProps">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          class="icon icon-account"
+                          viewBox="0 0 1024 1024"
+                          :style="`width: 30px; fill: #5597fa;transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
+                        >
+                          <title>user</title>
+                          <path
+                            class="path1"
+                            d="M486.4 563.2c-155.275 0-281.6-126.325-281.6-281.6s126.325-281.6 281.6-281.6 281.6 126.325 281.6 281.6-126.325 281.6-281.6 281.6zM486.4 51.2c-127.043 0-230.4 103.357-230.4 230.4s103.357 230.4 230.4 230.4c127.042 0 230.4-103.357 230.4-230.4s-103.358-230.4-230.4-230.4z"
+                          ></path>
+                          <path
+                            class="path2"
+                            d="M896 1024h-819.2c-42.347 0-76.8-34.451-76.8-76.8 0-3.485 0.712-86.285 62.72-168.96 36.094-48.126 85.514-86.36 146.883-113.634 74.957-33.314 168.085-50.206 276.797-50.206 108.71 0 201.838 16.893 276.797 50.206 61.37 27.275 110.789 65.507 146.883 113.634 62.008 82.675 62.72 165.475 62.72 168.96 0 42.349-34.451 76.8-76.8 76.8zM486.4 665.6c-178.52 0-310.267 48.789-381 141.093-53.011 69.174-54.195 139.904-54.2 140.61 0 14.013 11.485 25.498 25.6 25.498h819.2c14.115 0 25.6-11.485 25.6-25.6-0.006-0.603-1.189-71.333-54.198-140.507-70.734-92.304-202.483-141.093-381.002-141.093z"
+                          ></path>
+                        </svg>
+                        <span
+                          class="mt-1"
+                          style="
+                            color: #5597fa;
+                            text-transform: none;
+                            font-weight: 400;
+                            letter-spacing: normal;
+                            font-family:
+                              system-ui,
+                              -apple-system,
+                              BlinkMacSystemFont,
+                              'Segoe UI',
+                              Roboto,
+                              Oxygen,
+                              Ubuntu,
+                              Cantarell,
+                              'Open Sans',
+                              'Helvetica Neue',
+                              sans-serif;
+                          "
+                          >Registrarme</span
+                        ></v-btn
+                      >
+                    </template>
 
-                    <span class="mt-1" style="color: #5597fa">Registrarme</span>
-                  </div>
+                    <v-card prepend-icon="mdi-account" title="Registro">
+                      <v-card-text>
+                        <v-row dense>
+                          <v-col cols="12" md="6" sm="6">
+                            <v-text-field label="Nombre*" required></v-text-field>
+                          </v-col>
+
+                          <v-col cols="12" md="6" sm="6">
+                            <v-text-field label="Apellido*" persistent-hint required></v-text-field>
+                          </v-col>
+
+                          <v-col cols="12" md="4" sm="6">
+                            <v-text-field label="Email*" required></v-text-field>
+                          </v-col>
+
+                          <v-col cols="12" md="4" sm="6">
+                            <v-text-field
+                              label="Contraseña*"
+                              type="password"
+                              required
+                            ></v-text-field>
+                          </v-col>
+
+                          <v-col cols="12" md="4" sm="6">
+                            <v-text-field
+                              label="Confirma contraseña*"
+                              type="password"
+                              required
+                            ></v-text-field>
+                          </v-col>
+
+                          <v-col cols="12" sm="6">
+                            <v-select
+                              :items="['0-17', '18-29', '30-54', '54+']"
+                              label="Edad*"
+                              required
+                            ></v-select>
+                          </v-col>
+
+                          <v-col cols="12" sm="6">
+                            <v-autocomplete
+                              :items="[
+                                'Bebidas',
+                                'Bolsas y mochilas',
+                                'Hieleras',
+                                'Cubetas',
+                                'Cocina',
+                                'Vestimenta',
+                                'Macotas',
+                                'Exterior',
+                                'Accesorios',
+                              ]"
+                              label="Interes"
+                              auto-select-first
+                              multiple
+                            ></v-autocomplete>
+                          </v-col>
+                        </v-row>
+
+                        <small class="text-caption text-medium-emphasis">*campos requeridos</small>
+                      </v-card-text>
+
+                      <v-divider></v-divider>
+
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+
+                        <v-btn text="Cerrar" variant="plain" @click="dialog = false"></v-btn>
+
+                        <v-btn
+                          color="primary"
+                          text="Guardar"
+                          variant="tonal"
+                          @click="dialog = false"
+                        ></v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
                 </div>
               </v-hover>
               <v-hover v-slot="{ isHovering, props }">
@@ -212,7 +314,10 @@
   </div>
 </template>
 <script setup>
+import { shallowRef } from 'vue'
+
 import { useReviewsStore } from '../stores/reviews'
+const dialog = shallowRef(false)
 const store = useReviewsStore()
 //console.log(store)
 </script>

@@ -21,19 +21,100 @@
             />
           </v-col>
           <v-col cols="4" class="d-flex justify-end">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              aria-hidden="true"
-              focusable="false"
-              role="presentation"
-              class="icon icon-account"
-              width="25"
-            >
-              <path
-                d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 16 8 C 13.25 8 11 10.25 11 13 C 11 14.515625 11.707031 15.863281 12.78125 16.78125 C 10.53125 17.949219 9 20.300781 9 23 L 11 23 C 11 20.226563 13.226563 18 16 18 C 18.773438 18 21 20.226563 21 23 L 23 23 C 23 20.300781 21.46875 17.949219 19.21875 16.78125 C 20.292969 15.863281 21 14.515625 21 13 C 21 10.25 18.75 8 16 8 Z M 16 10 C 17.667969 10 19 11.332031 19 13 C 19 14.667969 17.667969 16 16 16 C 14.332031 16 13 14.667969 13 13 C 13 11.332031 14.332031 10 16 10 Z"
-              ></path>
-            </svg>
+            <v-dialog v-model="dialog" max-width="600">
+              <template v-slot:activator="{ props: activatorProps }">
+                <v-btn prepend-icon="" stacked v-bind="activatorProps">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="icon icon-account"
+                    width="25"
+                  >
+                    <path
+                      d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 16 8 C 13.25 8 11 10.25 11 13 C 11 14.515625 11.707031 15.863281 12.78125 16.78125 C 10.53125 17.949219 9 20.300781 9 23 L 11 23 C 11 20.226563 13.226563 18 16 18 C 18.773438 18 21 20.226563 21 23 L 23 23 C 23 20.300781 21.46875 17.949219 19.21875 16.78125 C 20.292969 15.863281 21 14.515625 21 13 C 21 10.25 18.75 8 16 8 Z M 16 10 C 17.667969 10 19 11.332031 19 13 C 19 14.667969 17.667969 16 16 16 C 14.332031 16 13 14.667969 13 13 C 13 11.332031 14.332031 10 16 10 Z"
+                    ></path>
+                  </svg>
+                </v-btn>
+              </template>
+
+              <v-card prepend-icon="mdi-account" title="Registro">
+                <v-card-text>
+                  <v-row dense>
+                    <v-col cols="12" md="6" sm="6">
+                      <v-text-field label="Nombre*" required></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="6" sm="6">
+                      <v-text-field label="Apellido*" persistent-hint required></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="4" sm="6">
+                      <v-text-field label="Email*" required></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="4" sm="6">
+                      <v-text-field label="Contraseña*" type="password" required></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="4" sm="6">
+                      <v-text-field
+                        label="Confirma contraseña*"
+                        type="password"
+                        required
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" sm="6">
+                      <v-select
+                        :items="['0-17', '18-29', '30-54', '54+']"
+                        label="Edad*"
+                        required
+                      ></v-select>
+                    </v-col>
+
+                    <v-col cols="12" sm="6">
+                      <v-autocomplete
+                        :items="[
+                          'Bebidas',
+                          'Bolsas y mochilas',
+                          'Hieleras',
+                          'Cubetas',
+                          'Cocina',
+                          'Vestimenta',
+                          'Macotas',
+                          'Exterior',
+                          'Accesorios',
+                        ]"
+                        label="Interes"
+                        auto-select-first
+                        multiple
+                      ></v-autocomplete>
+                    </v-col>
+                  </v-row>
+
+                  <small class="text-caption text-medium-emphasis">*campos requeridos</small>
+                </v-card-text>
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                  <v-btn text="Cerrar" variant="plain" @click="dialog = false"></v-btn>
+
+                  <v-btn
+                    color="primary"
+                    text="Guardar"
+                    variant="tonal"
+                    @click="dialog = false"
+                  ></v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+
             <svg
               viewBox="0 0 30 30"
               class="icon icon-cart ml-7"
@@ -81,4 +162,8 @@ export default {
     ...mapState(cartStore, ['cartItems']),
   },
 }
+</script>
+<script setup>
+import { shallowRef } from 'vue'
+const dialog = shallowRef(false)
 </script>

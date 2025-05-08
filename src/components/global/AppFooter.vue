@@ -20,7 +20,12 @@
                 @click="$router.push({ name: 'nosotros' })"
                 >Nosotros</v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Productos</v-card-text>
+              <v-card-text
+                class="pt-0 pb-3"
+                style="color: rgb(71, 71, 71); cursor: pointer"
+                @click="$router.push({ name: 'productos' })"
+                >Productos</v-card-text
+              >
 
               <v-card-text
                 class="pt-0 pb-3"

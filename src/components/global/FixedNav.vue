@@ -16,7 +16,9 @@
             <ul class="links d-flex text-white justify-space-between pt-4" style="list-style: none">
               <li @click="$router.push({ name: 'home' })" style="cursor: pointer">Inicio</li>
               <li @click="$router.push({ name: 'nosotros' })" style="cursor: pointer">Nosotros</li>
-              <li>Productos</li>
+              <li @click="$router.push({ name: 'productos' })" style="cursor: pointer">
+                Productos
+              </li>
               <li @click="$router.push({ name: 'contacto' })" style="cursor: pointer">Contacto</li>
               <li @click="$router.push({ name: 'faq' })" style="cursor: pointer">FAQ</li>
             </ul>

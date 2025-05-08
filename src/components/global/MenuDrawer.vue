@@ -27,7 +27,9 @@
             </v-list-item-title>
           </v-list-item>
           <v-list-item class="px-0">
-            <v-list-item-title> Productos </v-list-item-title>
+            <v-list-item-title @click="$router.push({ name: 'productos' })" style="cursor: pointer">
+              Productos
+            </v-list-item-title>
           </v-list-item>
           <v-list-item class="px-0">
             <v-list-item-title @click="$router.push({ name: 'contacto' })" style="cursor: pointer">
