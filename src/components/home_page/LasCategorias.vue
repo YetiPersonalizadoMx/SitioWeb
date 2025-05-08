@@ -52,6 +52,7 @@
             <v-card class="text-center" elevation="0">
               <v-hover v-slot="{ isHovering, props }">
                 <div
+                  @click="$router.push({ name: 'productos' })"
                   class="img-parent"
                   style="
                     overflow: hidden;

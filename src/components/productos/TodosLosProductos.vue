@@ -1,118 +1,108 @@
 <template>
   <div class="productos-swiper pt-10">
     <div class="title mb-10 px-5 d-flex align-center justify-center justify-space-between">
-      <h2 style="font-weight: 200; font-size: 35px" class="text-black">Todos los productos</h2>
-      <a href="#" class="text-black" style="font-size: 14px">Todos los productos</a>
+      <h2 style="font-weight: 200; font-size: 35px" class="text-black">Nuestros productos</h2>
     </div>
 
-    <Swiper
-      :pagination="{ el: '.swiper-pagination', clickable: true }"
-      :modules="modules"
-      :slides-per-view="4"
-      :space-between="35"
-      class="pb-9 px-5"
-      :navigation="{ prevIcon: '.swiper-prev', nextIcon: '.swiper-next' }"
-      :autoplay="{ delay: 3000, pauseOnMouseEnter: true, disableOnInteraction: false }"
-      :breakpoints="breakpoints"
-      :loop="true"
-    >
-      <swiper-slide v-for="item in productos" :key="item.id">
-        <v-card elevation="0" class="pb-5">
-          <v-hover v-slot="{ isHovering, props }">
-            <div class="img-parent position-relative" style="width: 300px; overflow: hidden">
-              <img
-                :src="showenItem[item.title] ? showenItem[item.title] : item.thumbnail"
-                alt=""
-                class="v-100"
-                :style="`width: 300px; transition: 0.5s all ease-in-out; cursor:pointer; scale: ${isHovering ? 1.05 : 1}`"
-                v-bind="props"
-              />
-              <v-btn
-                density="compact"
-                width="100"
-                height="30"
-                variant="outlined"
-                class="bg-white quick-view-btn"
-                style="
-                  text-transform: none;
-                  position: absolute;
-                  left: 50%;
-                  top: 50%;
-                  transform: translate(-50%, -50%);
-                  border-radius: 30px;
-                  font-size: 12px;
-                  transition: 0.2 all ease-in-out;
-                  opacity: 0;
-                "
-                @click="openQuickView(item)"
-                >Vista rapida</v-btn
-              >
-            </div>
-          </v-hover>
-
-          <v-card-text class="pl-0 pb-1">
-            <strong>{{ item.title }} </strong> |
-            {{
-              item.description.split(' ').length <= 8
-                ? item.description
-                : item.description.split(' ').slice(0, 8).join(' ') + '...'
-            }}
-          </v-card-text>
-          <v-rating
-            v-model="item.rating"
-            half-increments
-            readonly
-            color="yellow-darken-2"
-            size="small"
-            density="compact"
-          >
-          </v-rating>
-          <v-card-text class="pl-0 pt-0">
-            $<del> {{ item.price }}</del> ahora a
-            <span class="text-black" style="font-weight: 900; font-size: 15px"
-              >${{ Math.ceil(item.price - item.price * (item.discountPercentage / 100)) }}</span
-            >
-          </v-card-text>
-          <v-btn-toggle v-model="showenItem[item.title]" mandatory>
-            <v-btn
-              v-for="(pic, i) in item.images"
-              :value="pic"
-              :key="i"
-              size="x-small"
-              rounded="xl"
-              :ripple="false"
-              ><img
-                :src="pic"
-                width="30"
-                height="30"
-                style="border-radius: 50%; border: 1px solid black"
-                alt=""
-            /></v-btn>
-          </v-btn-toggle>
-          <div class="mt-5 d-flex align-center">
-            <v-btn
-              density="default"
-              class="px-10 mr-5"
-              size="large"
-              style="text-transform: none; border-radius: 30px"
-              variant="outlined"
-              @click="$router.push({ name: 'product-details', params: { productId: item.id } })"
-            >
-              Selecciona Opcion</v-btn
-            >
+    <v-container>
+      <v-row>
+        <v-col v-for="item in productos" :key="item.id">
+          <v-card elevation="0" class="pb-5">
             <v-hover v-slot="{ isHovering, props }">
-              <div v-bind="props">
-                <span style="cursor: pointer"
-                  ><svg
-                    :style="`transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
-                    viewBox="0 0 512 512"
-                    width="30px"
-                    class="icon icon-wishlist"
-                  >
-                    <g>
+              <div class="img-parent position-relative" style="width: 300px; overflow: hidden">
+                <img
+                  :src="showenItem[item.title] ? showenItem[item.title] : item.thumbnail"
+                  alt=""
+                  class="v-100"
+                  :style="`width: 300px; transition: 0.5s all ease-in-out; cursor:pointer; scale: ${isHovering ? 1.05 : 1}`"
+                  v-bind="props"
+                />
+                <v-btn
+                  density="compact"
+                  width="100"
+                  height="30"
+                  variant="outlined"
+                  class="bg-white quick-view-btn"
+                  style="
+                    text-transform: none;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    border-radius: 30px;
+                    font-size: 12px;
+                    transition: 0.2 all ease-in-out;
+                    opacity: 0;
+                  "
+                  @click="openQuickView(item)"
+                  >Vista rapida</v-btn
+                >
+              </div>
+            </v-hover>
+
+            <v-card-text class="pl-0 pb-1">
+              <strong>{{ item.title }} </strong> |
+              {{
+                item.description.split(' ').length <= 8
+                  ? item.description
+                  : item.description.split(' ').slice(0, 8).join(' ') + '...'
+              }}
+            </v-card-text>
+            <v-rating
+              v-model="item.rating"
+              half-increments
+              readonly
+              color="yellow-darken-2"
+              size="small"
+              density="compact"
+            >
+            </v-rating>
+            <v-card-text class="pl-0 pt-0">
+              $<del> {{ item.price }}</del> ahora a
+              <span class="text-black" style="font-weight: 900; font-size: 15px"
+                >${{ Math.ceil(item.price - item.price * (item.discountPercentage / 100)) }}</span
+              >
+            </v-card-text>
+            <v-btn-toggle v-model="showenItem[item.title]" mandatory>
+              <v-btn
+                v-for="(pic, i) in item.images"
+                :value="pic"
+                :key="i"
+                size="x-small"
+                rounded="xl"
+                :ripple="false"
+                ><img
+                  :src="pic"
+                  width="30"
+                  height="30"
+                  style="border-radius: 50%; border: 1px solid black"
+                  alt=""
+              /></v-btn>
+            </v-btn-toggle>
+            <div class="mt-5 d-flex align-center">
+              <v-btn
+                density="default"
+                class="px-10 mr-5"
+                size="large"
+                style="text-transform: none; border-radius: 30px"
+                variant="outlined"
+                @click="$router.push({ name: 'product-details', params: { productId: item.id } })"
+              >
+                Selecciona Opcion</v-btn
+              >
+              <v-hover v-slot="{ isHovering, props }">
+                <div v-bind="props">
+                  <span style="cursor: pointer"
+                    ><svg
+                      :style="`transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
+                      viewBox="0 0 512 512"
+                      width="30px"
+                      class="icon icon-wishlist"
+                    >
                       <g>
-                        <path
-                          d="M474.644,74.27C449.391,45.616,414.358,29.836,376,29.836c-53.948,0-88.103,32.22-107.255,59.25
+                        <g>
+                          <path
+                            d="M474.644,74.27C449.391,45.616,414.358,29.836,376,29.836c-53.948,0-88.103,32.22-107.255,59.25
         c-4.969,7.014-9.196,14.047-12.745,20.665c-3.549-6.618-7.775-13.651-12.745-20.665c-19.152-27.03-53.307-59.25-107.255-59.25
         c-38.358,0-73.391,15.781-98.645,44.435C13.267,101.605,0,138.213,0,177.351c0,42.603,16.633,82.228,52.345,124.7
         c31.917,37.96,77.834,77.088,131.005,122.397c19.813,16.884,40.302,34.344,62.115,53.429l0.655,0.574
@@ -124,25 +114,22 @@
         c2.011,6.175,7.768,10.354,14.262,10.354c6.494,0,12.251-4.179,14.262-10.354c2.404-7.377,9.453-26.595,22.962-45.66
         c15.06-21.255,41.647-46.593,82.776-46.593c29.621,0,56.66,12.171,76.137,34.27C471.395,115.957,482,145.521,482,177.351
         C482,254.358,413.255,312.939,309.193,401.614z"
-                        ></path>
+                          ></path>
+                        </g>
                       </g>
-                    </g>
-                  </svg>
-                </span>
-              </div>
-            </v-hover>
-          </div>
-        </v-card>
-      </swiper-slide>
-      <div class="swiper-prev"></div>
-      <div class="swiper-next"></div>
-      <div class="swiper-pagination"></div>
-    </Swiper>
+                    </svg>
+                  </span>
+                </div>
+              </v-hover>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import { Pagination, Navigation, Autoplay } from 'swiper'
+'swiper'
 
 export default {
   inject: ['Emitter'],
@@ -157,14 +144,9 @@ export default {
     },
   },
   setup() {
-    return {
-      modules: [Pagination, Navigation, Autoplay],
-    }
+    return {}
   },
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
+  components: {},
   data: () => ({
     showenItem: {},
     breakpoints: {

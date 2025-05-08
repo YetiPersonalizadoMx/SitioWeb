@@ -6,6 +6,7 @@
         <v-col cols="4" lg="4" md="6" sm="12" class="mt-1 pt-sm-1 py-0">
           <v-hover v-slot="{ isHovering, props }">
             <div
+              @click="$router.push({ name: 'productos' })"
               class="parent"
               v-bind="props"
               style="overflow: hidden; width: 100%; border-radius: 7px"
@@ -21,6 +22,7 @@
         <v-col cols="4" lg="4" md="6" sm="12" class="mt-1 pt-sm-1 py-0">
           <v-hover v-slot="{ isHovering, props }">
             <div
+              @click="$router.push({ name: 'productos' })"
               class="parent"
               v-bind="props"
               style="overflow: hidden; width: 100%; border-radius: 7px"
@@ -36,6 +38,7 @@
         <v-col cols="4" lg="4" md="6" sm="12" class="mt-1 pt-sm-1 py-0">
           <v-hover v-slot="{ isHovering, props }">
             <div
+              @click="$router.push({ name: 'productos' })"
               class="parent"
               v-bind="props"
               style="overflow: hidden; width: 100%; border-radius: 7px"
