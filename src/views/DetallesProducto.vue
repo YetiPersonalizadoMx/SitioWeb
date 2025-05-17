@@ -5,7 +5,7 @@
         <v-col cols="12" sm="7">
           <img
             :src="tab ? tab : singleProduct.thumbnail"
-            class="w-100"
+            class="w-80"
             width="500"
             alt=""
             v-if="!loading"
@@ -13,11 +13,11 @@
           <v-skeleton-loader type="image, image, image" v-if="loading"></v-skeleton-loader>
           <v-tabs center-active height="200" v-model="tab" class="mt-10">
             <v-tab v-for="(img, i) in singleProduct.images" :key="i" class="mx-10" :value="img">
-              <img :src="img" alt="" width="100" height="auto" />
+              <img :src="img" alt="" width="200" height="auto" />
             </v-tab>
           </v-tabs>
         </v-col>
-        <v-col cols="12" md="5" class="pt-0 pl-6 mt-8 mt-md-0">
+        <v-col cols="12" md="5" class="pt-0 pl-6 mt-8">
           <v-skeleton-loader type="article, article, article" v-if="loading"></v-skeleton-loader>
           <v-card elevation="0" v-if="!loading">
             <v-card-title class="px-0" style="font-weight: bold; font-size: 19px"

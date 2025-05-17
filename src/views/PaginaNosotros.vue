@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" class="nosotros-col" style="padding-left: 20%; padding-right: 20%">
-          <h2 class="text-center">¿Quiénes somos?</h2>
+          <h2 class="text-center mt-10">¿Quiénes somos?</h2>
           <p style="text-align: justify">
             Yeti Personalizado MX es una empresa de carácter familiar dedicada a la comercialización
             de los productos YETI, los cuales son altamente reconocidos por su alta calidad y

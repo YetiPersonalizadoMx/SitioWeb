@@ -11,7 +11,7 @@
               ></path>
             </svg>
           </v-col>
-          <v-col cols="4" class="text-center">
+          <v-col cols="4" class="d-flex align-center">
             <img
               src="/src/assets/images/logo2.jpg"
               height="40px"
@@ -21,7 +21,174 @@
             />
           </v-col>
           <v-col cols="4" class="d-flex justify-end">
+            <v-dialog v-model="dialog2" max-width="600">
+              <template v-slot:activator="{ props: activatorProps }">
+                <v-btn prepend-icon="" stacked v-bind="activatorProps">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="icon icon-account"
+                    width="25"
+                  >
+                    <path
+                      d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 16 8 C 13.25 8 11 10.25 11 13 C 11 14.515625 11.707031 15.863281 12.78125 16.78125 C 10.53125 17.949219 9 20.300781 9 23 L 11 23 C 11 20.226563 13.226563 18 16 18 C 18.773438 18 21 20.226563 21 23 L 23 23 C 23 20.300781 21.46875 17.949219 19.21875 16.78125 C 20.292969 15.863281 21 14.515625 21 13 C 21 10.25 18.75 8 16 8 Z M 16 10 C 17.667969 10 19 11.332031 19 13 C 19 14.667969 17.667969 16 16 16 C 14.332031 16 13 14.667969 13 13 C 13 11.332031 14.332031 10 16 10 Z"
+                    ></path>
+                  </svg>
+                </v-btn>
+              </template>
+
+              <div>
+                <v-img
+                  class="mx-auto my-6"
+                  max-width="180"
+                  src="/src/assets/images/logo.jpeg"
+                ></v-img>
+
+                <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="448" rounded="lg">
+                  <div class="text-subtitle-1 text-medium-emphasis">Cuenta</div>
+
+                  <v-text-field
+                    density="compact"
+                    placeholder="Mi Email"
+                    prepend-inner-icon="mdi-email-outline"
+                    variant="outlined"
+                  ></v-text-field>
+
+                  <div
+                    class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
+                  >
+                    Contraseña
+
+                    <a
+                      class="text-caption text-decoration-none text-blue"
+                      href="#"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Olvidé mi contraseña</a
+                    >
+                  </div>
+
+                  <v-text-field
+                    :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+                    :type="visible ? 'text' : 'password'"
+                    density="compact"
+                    placeholder="Ingese su contraseña"
+                    prepend-inner-icon="mdi-lock-outline"
+                    variant="outlined"
+                    @click:append-inner="visible = !visible"
+                  ></v-text-field>
+
+                  <v-card class="mb-12" color="surface-variant" variant="tonal">
+                    <v-card-text class="text-medium-emphasis text-caption">
+                      Atención: Despues de 3 intentos fallidos consecutivos, su cuenta permanecerá
+                      bloqueada por un periodo de 3 horas. Si deseas ingresar ahora, puedes hacer
+                      click en el link "Olvidé mi contraseña", para reestablecer su contraseña.
+                    </v-card-text>
+                  </v-card>
+
+                  <v-btn
+                    class="mb-8"
+                    color="blue"
+                    size="large"
+                    variant="tonal"
+                    block
+                    @click="dialog2 = false"
+                  >
+                    Inicio de sesión
+                  </v-btn>
+
+                  <v-card-text class="text-center">
+                    <p
+                      style="cursor: pointer"
+                      class="text-blue text-decoration-none"
+                      @click="((dialog2 = false), (dialog = true))"
+                    >
+                      Registrarme <v-icon icon="mdi-chevron-right"></v-icon>
+                    </p>
+                  </v-card-text>
+                </v-card>
+              </div>
+            </v-dialog>
             <v-dialog v-model="dialog" max-width="600">
+              <v-card prepend-icon="mdi-account" title="Registro">
+                <v-card-text>
+                  <v-row dense>
+                    <v-col cols="12" md="6" sm="6">
+                      <v-text-field label="Nombre*" required></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="6" sm="6">
+                      <v-text-field label="Apellido*" persistent-hint required></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="4" sm="6">
+                      <v-text-field label="Email*" required></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="4" sm="6">
+                      <v-text-field label="Contraseña*" type="password" required></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="4" sm="6">
+                      <v-text-field
+                        label="Confirma contraseña*"
+                        type="password"
+                        required
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" sm="6">
+                      <v-select
+                        :items="['0-17', '18-29', '30-54', '54+']"
+                        label="Edad*"
+                        required
+                      ></v-select>
+                    </v-col>
+
+                    <v-col cols="12" sm="6">
+                      <v-autocomplete
+                        :items="[
+                          'Bebidas',
+                          'Bolsas y mochilas',
+                          'Hieleras',
+                          'Cubetas',
+                          'Cocina',
+                          'Vestimenta',
+                          'Macotas',
+                          'Exterior',
+                          'Accesorios',
+                        ]"
+                        label="Interes"
+                        auto-select-first
+                        multiple
+                      ></v-autocomplete>
+                    </v-col>
+                  </v-row>
+
+                  <small class="text-caption text-medium-emphasis">*campos requeridos</small>
+                </v-card-text>
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                  <v-btn text="Cerrar" variant="plain" @click="dialog = false"></v-btn>
+
+                  <v-btn
+                    color="primary"
+                    text="Guardar"
+                    variant="tonal"
+                    @click="dialog = false"
+                  ></v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+            <!-- <v-dialog v-model="dialog" max-width="600">
               <template v-slot:activator="{ props: activatorProps }">
                 <v-btn prepend-icon="" stacked v-bind="activatorProps">
                   <svg
@@ -113,7 +280,7 @@
                   ></v-btn>
                 </v-card-actions>
               </v-card>
-            </v-dialog>
+            </v-dialog> -->
 
             <svg
               viewBox="0 0 30 30"
@@ -135,7 +302,7 @@
               location="right top"
               :content="cartItems.length"
               color="black"
-              offsetY="10"
+              offsetY="20"
               v-if="cartItems.length"
             >
             </v-badge>
@@ -166,4 +333,5 @@ export default {
 <script setup>
 import { shallowRef } from 'vue'
 const dialog = shallowRef(false)
+const dialog2 = shallowRef(false)
 </script>

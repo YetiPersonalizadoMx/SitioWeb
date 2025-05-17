@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="nosotros-col" style="padding-left: 20%; padding-right: 20%">
-          <h2 class="text-center">Tus comentarios son muy importantes para nosotros</h2>
+          <h2 class="text-center mt-10">Tus comentarios son muy importantes para nosotros</h2>
           <p style="text-align: justify">
             Yeti Personalizado MX nos interesa saber si tienes alguna duda, por favor dejanos un
             mensaje o regalanos una llamada, estaremos en contacto contigo lo mas pronto posible.
@@ -14,36 +14,75 @@
           <h3 class="text-center">Envianos un mensaje</h3>
           <div class="container py-4">
             <!-- Bootstrap 5 starter form -->
-            <form id="contactForm">
+            <form
+              v-if="showForm"
+              id="contactForm"
+              @submit.prevent="onSubmit"
+              enctype="multipart/form-data"
+            >
               <!-- Name input -->
               <div class="mb-3">
-                <label class="form-label" for="name">Nombre</label>
-                <input class="form-control" id="name" type="text" placeholder="Su nombre" />
+                <FormInput
+                  label="Nombre"
+                  v-model="contactForm.name"
+                  :error="errors.name"
+                  placeholder="Su nombre"
+                  @Input="() => setTouched('name')"
+                />
               </div>
 
-              <!-- Email address input -->
+              <!-- Subject input -->
               <div class="mb-3">
-                <label class="form-label" for="emailAddress">Email</label>
-                <input class="form-control" id="emailAddress" type="email" placeholder="Su email" />
+                <FormInput
+                  label="Asunto"
+                  v-model="contactForm.subject"
+                  :error="errors.subject"
+                  placeholder="Asunto"
+                  @Input="() => setTouched('subject')"
+                />
+              </div>
+              <!-- Email input -->
+              <div class="mb-3">
+                <FormInput
+                  type="email"
+                  label="Email"
+                  v-model="contactForm.email"
+                  :error="errors.email"
+                  placeholder="su-correo@dominio.com"
+                  @Input="() => setTouched('email')"
+                />
               </div>
 
               <!-- Message input -->
               <div class="mb-3">
-                <label class="form-label" for="message">Mensaje</label>
-                <textarea
+                <FormTextArea
+                  label="Mensaje"
+                  v-model="contactForm.message"
+                  :error="errors.message"
+                  @Input="() => setTouched('message')"
+                  rows="4"
+                />
+              </div>
+              <!-- File input -->
+              <div class="mb-3">
+                <label for="file">Adjuntar archivos (PDF,JPG,PNG)</label>
+                <input
+                  type="file"
                   class="form-control"
-                  id="message"
-                  type="text"
-                  placeholder="Su mensaje"
-                  style="height: 10rem"
-                ></textarea>
+                  id="file"
+                  @change="onFileSelected"
+                  accept=".pdf, .jpg, .jpeg, .png"
+                />
               </div>
 
               <!-- Form submit button -->
-              <div class="d-grid">
-                <button class="btn btn-success" type="submit">Enviar</button>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-primary mt-3" type="submit" :disabled="!isFormValid">
+                  Enviar
+                </button>
               </div>
             </form>
+            <div v-if="!showForm" class="alert alert-success">{{ successMessage }}</div>
           </div>
         </v-col>
         <v-col cols="12" sm="9" md="6" lg="6">
@@ -170,6 +209,139 @@ export default {
     ],
   }),
 }
+</script>
+<script setup>
+import { ref, reactive, computed } from 'vue'
+//import { sendEmail } from '@/services/emailService'
+import FormInput from '@/components/contacto/FormInput.vue'
+import FormTextArea from '@/components/contacto/FormTextArea.vue'
+import Swal from 'sweetalert2'
+
+//const title = 'Yeti Personalizado MX'
+const showForm = true
+const successMessage = ref('')
+
+const initialContactForm = {
+  name: '',
+  subject: '',
+  email: '',
+  message: '',
+  file: null,
+}
+
+const initialtouched = {
+  name: false,
+  subject: false,
+  email: false,
+  message: false,
+}
+
+const contactForm = reactive({ ...initialContactForm })
+const touched = reactive({ ...initialtouched })
+
+function setTouched(field) {
+  touched[field] = true
+}
+
+const errors = reactive({
+  name: computed(() => (!contactForm.name && touched.name ? 'El nombre es requerido' : '')),
+  subject: computed(() =>
+    !contactForm.subject && touched.subject ? 'El asunto es requerido' : '',
+  ),
+  email: computed(() => {
+    if (touched.email) {
+      if (!contactForm.email) return 'El email es requerido'
+      if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(contactForm.email))
+        return 'Favor de proporcionar una email valido.'
+    }
+    return ''
+  }),
+  message: computed(() =>
+    !contactForm.message && touched.message ? 'El mensaje es requerido' : '',
+  ),
+})
+const isFormValid = computed(() => {
+  const allFieldsTouched = Object.values(touched).every((t) => t)
+  const noErrors = !Object.values(errors).some((e) => e)
+  return allFieldsTouched && noErrors
+})
+
+/* function noFileSelected($event) {
+  contactForm.file = $event.target.files[0]
+} */
+
+function resetForm() {
+  setTimeout(() => {
+    successMessage.value = ''
+    //showForm.value = true
+    Object.assign(contactForm, initialContactForm)
+    Object.assign(touched, initialtouched)
+  }, 5000)
+}
+async function onSubmit() {
+  if (isFormValid.value) {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        access_key: 'f2435eb6-10ce-4c3f-b601-e549fa97b478',
+        name: contactForm.name,
+        subject: contactForm.subject,
+        email: contactForm.email,
+        message: contactForm.message,
+      }),
+    })
+    const result = await response.json()
+    if (result.success) {
+      Swal.fire({
+        title: 'Su mensaje se ha enviado con exito!',
+        icon: 'success',
+        draggable: true,
+      })
+      //console.log(result)
+      //successMessage.value = resetForm.data.message
+      //showForm.value = false
+      resetForm()
+    }
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Algo salio mal, no se pudo enviar su mensaje!',
+    })
+    //console.log('El formulario no es valido')
+  }
+}
+/* async function onSubmit() {
+  if (isFormValid.value) {
+    const formData = new formData()
+    formData.append('name', contactForm.name)
+    formData.append('subject', contactForm.subject)
+    formData.append('email', contactForm.email)
+    formData.append('message', contactForm.message)
+    if (contactForm.file) {
+      formData.append('file', contactForm.file, contactForm.file.name)
+    }
+
+    try {
+      const response = await sendEmail(formData)
+      if (response.status === 200) {
+        successMessage.value = resetForm.data.message
+        showForm.value = false
+        resetForm()
+      } else {
+        console.error('Fallo en el envio del correo:', response)
+      }
+    } catch (error) {
+      console.error('Ocurrio un error al enviar el email:', error)
+    }
+  } else {
+    console.log('El formulario no es valido')
+  }
+} */
 </script>
 
 <style scoped>

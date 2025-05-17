@@ -266,6 +266,137 @@
         "https://yeti-webmedia.imgix.net/m/16bce7e1961efd22/W-site_studio_hard_goods_Tundra_45_Wild_Vine_Red_front_3352_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
         "https://yeti-webmedia.imgix.net/m/b395ec4f80ff37b/W-site_studio_hard_coolers_Tundra_45_Ultramarine_Violet_front_3352_Layers_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846"
       ]
+    },
+    {
+      "id": "14",
+      "title": "Hielera blanda tipo mochila M20",
+      "description": "Carga lo que necesitas para todo el día en la espalda. Capacidad para 36 latas (solamente). Capacidad para 22 lbs (10 kgs) de hielo (solamente). Apta para botellas de vino.",
+      "category": "Hielera",
+      "price": 325,
+      "discountPercentage": 10,
+      "rating": 4.7,
+      "stock": 10,
+      "thumbnail": "https://yeti-webmedia.imgix.net/asset/6e8386f3-ef53-4f6b-b2dc-75fcfe6d0528/W/site_studio_soft_goods_M_20_Rescue_Red_Front_Open_251_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+      "images": [
+        "https://yeti-webmedia.imgix.net/asset/c44167a6-7108-4e07-b5c3-e63e07126a73/W/site_studio_soft_goods_M_20_Peach_Beekeeper_Front_Open_151_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/asset/ca570f81-c878-44b8-a360-e39e0f495d6e/W/site_studio_soft_goods_Hopper_M_20_Firefly_Yellow_Front_Open_1137_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/6e728243ec0640c9/W-site_studio_soft_goods_Sandstone_M_20_Front_Open_13017_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/185a70f1ca5fb046/W-site_studio_soft_goods_Hopper_M_20_BigWaveBlue_Front_Open_7167_V3_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/47ab8e54fbf1ccd9/W-site_studio_soft_coolers_Hopper_M_20_PowerPink_Front_Open_16274_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/asset/6e8386f3-ef53-4f6b-b2dc-75fcfe6d0528/W/site_studio_soft_goods_M_20_Rescue_Red_Front_Open_251_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846"
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Hielera blanda M15",
+      "description": "Una hielera blanda que es cualquier cosa menos delicada. Capacidad para 32 latas (solamente). Capacidad para 15 lb (6.5 kg) de hielo (solamente). Apta para botellas de vino.",
+      "category": "Hielera",
+      "price": 300,
+      "discountPercentage": 20,
+      "rating": 4.7,
+      "stock": 50,
+      "thumbnail": "https://yeti-webmedia.imgix.net/asset/2352fa5c-d0e8-4b50-acb1-ec5da625c0a0/W/site_studio_soft_goods_M_15_Ultramarine_Violet_Front_Open_528_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+      "images": [
+        "https://yeti-webmedia.imgix.net/m/3b275ef95511841b/W-site_studio_soft_coolers_Hopper_M_15_Big_Sky_Blue_Front_Open_057_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/5b4168e74b2d1f12/W-site_studio_soft_goods_Hopper_M_15_Cape_Taupe_Front_Open_15057_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/79b3d61611cfccbf/W-site_studio_soft_goods_Sandstone_M_15_Back_Open_13296_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/19140a6273ca8e60/W-site_studio_soft_goods_Hopper_M_15_Wild_Vine_Front_Open_10618_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/79b2b61d94079c07/W-site_studio_soft_goods_Hopper_M_15_BigWaveBlue_Front_Open_7307_V3_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/asset/2352fa5c-d0e8-4b50-acb1-ec5da625c0a0/W/site_studio_soft_goods_M_15_Ultramarine_Violet_Front_Open_528_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846"
+      ]
+    },
+    {
+      "id": "16",
+      "title": "Bowl para perro 8",
+      "description": "Extrafuerte y resistente a abolladuras, con capacidad para 8 tazas de agua o de la comida favorita de tu mejor amigo. Acero inoxidable 18/8 es resistente a perforaciones, a prueba de óxido y apto para lavavajillas.",
+      "category": "Bowl",
+      "price": 60,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 95,
+      "thumbnail": "https://yeti-webmedia.imgix.net/m/2c9716c2652ca753/W-site_studio_outdoor_living_Boomer_Dog-Bowl_8_Big_Sky_Blue_Back_4174_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+      "images": [
+        "https://yeti-webmedia.imgix.net/asset/da46ffc0-e5c6-49cf-8e6a-667fbb9088f6/W/site_studio_Boomer_Dog_Bowl_8_Rescue_Red_Front_4188_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/16fffa42a49564/W-site_studio_outdoor_living_Boomer_Dog-Bowl_8_Tropical_Pink_Back_4174_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/2e554f8bc0b5a8d6/W-Boomer_Dog_Bowl_8_Navy_Back_4174_B.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/381026e80f49c0bf/W-Boomer_Dog_Bowl_8_Black_Back_4174_B.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/7f9905f07703c8d2/W-site_Studio_Boomer_Dog-Bowl_8_White_Front_4188_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/2c9716c2652ca753/W-site_studio_outdoor_living_Boomer_Dog-Bowl_8_Big_Sky_Blue_Back_4174_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846"
+      ]
+    },
+    {
+      "id": "17",
+      "title": "Bolso a prueba de agua de 100 L",
+      "description": "Protege tu bolsa de dormir, equipo de camping y ropa de cualquier clima o terreno. Fabricado para llevar incluso el equipo más voluminoso en expediciones.",
+      "category": "Bolso",
+      "price": 400,
+      "discountPercentage": 0,
+      "rating": 4.9,
+      "stock": 55,
+      "thumbnail": "https://yeti-webmedia.imgix.net/m/4dcfb6fc76361f7f/W-site_studio_soft_goods_bags_Panga_100L_Duffel_Orange_Black_KCO_Bottom_0241_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+      "images": [
+        "https://yeti-webmedia.imgix.net/asset/7a0dfb6d-8b10-48a2-96ae-894537f2eb71/W/site_studio_bags_Panga_100_Firefly_Yellow_Bottom_646_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/3d9207e1071703db/W-site_studio_Panga_100L_Duffel_Storm_Gray_Bottom_0041_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/3ec32f5b5d61345f/W-site_studio_Panga_100L_Duffel_Tan_Bottom_0241_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/4dcfb6fc76361f7f/W-site_studio_soft_goods_bags_Panga_100L_Duffel_Orange_Black_KCO_Bottom_0241_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846"
+      ]
+    },
+    {
+      "id": "18",
+      "title": "Caja de carga GoBox 60",
+      "description": "Protege tu equipo sin importar las condiciones de afuera. A prueba de polvo, de agua y prácticamente indestructible. Bandeja organizadora y divisor extraíbles, con diseño apilable.",
+      "category": "Caja",
+      "price": 300,
+      "discountPercentage": 0,
+      "rating": 4.6,
+      "stock": 20,
+      "thumbnail": "https://yeti-webmedia.imgix.net/m/4282582927ee1a3f/W-220027_site_studio_Loadout_GoBox_60_King_Crab_Front_Open_1240_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+      "images": [
+        "https://yeti-webmedia.imgix.net/m/5c690eb7db27f3d4/W-220027_site_studio_Loadout_GoBox_60_Charcoal_Front_Open_1240_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/1adbddf7019099dc/W-220027_site_studio_Loadout_GoBox_60_White_Front_Open_1245_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/27dbcfd9114871a9/W-220027_site_studio_Loadout_GoBox_60_Tan_Front_Open_1240_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/6f72f1219ef9cfc5/W-site_studio_hard_goods_Loadout_GoBox_60_Firefly_Yellow_Front_Open_1240_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/asset/43b53f7a-0590-438a-9815-10e896142cb3/W/site_studio_hard_goods_Loadout_GoBox_60_Rescue_Red_Front_Open_1240_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/4282582927ee1a3f/W-220027_site_studio_Loadout_GoBox_60_King_Crab_Front_Open_1240_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846"
+      ]
+    },
+    {
+      "id": "19",
+      "title": "Botella de 34 oz (1 L)",
+      "description": "Nuestra botella de plástico de 34 oz (1 L) es lo suficientemente liviana para llevarla a un día de excursión por la montaña. Incluye la tapa adherida Yonder®, es 100 % hermética y siempre está sujeta a la botella.",
+      "category": "Caja",
+      "price": 28,
+      "discountPercentage": 0,
+      "rating": 4.7,
+      "stock": 120,
+      "thumbnail": "https://yeti-webmedia.imgix.net/m/6b658066573e917c/W-site_studio_Drinkware_Yonder_Tether_Accs_1L_Seafoam_Back_0768_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+      "images": [
+        "https://yeti-webmedia.imgix.net/m/732236db9190c565/W-site_studio_drinkware_Yonder_1L_Key_Lime_Back_0768_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/37b4bdeedb702a98/W-site_studio_drinkware_Yonder_1L_Big_Wave_Blue_Back_0768_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/597f0228499d2f36/W-230035_Power_Pink-BCA-2023_site_studio_drinkware_Yonder_1L_Power_Pink_Back_0768_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/2239bc3259ebb43f/W-220111_2H23_Color_Launch_Drinkware_Yonder_1L_Cosmic_Lilac_Back_0768_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/1303e3b350776c81/W-site_studio_Drinkware_Yonder_Tether_Accs_1L_Charcoal_Back_0768_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/6b658066573e917c/W-site_studio_Drinkware_Yonder_Tether_Accs_1L_Seafoam_Back_0768_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846"
+      ]
+    },
+    {
+      "id": "20",
+      "title": "Vasitos de shot",
+      "description": "Apila, guarda y tomate uno de estos vasitos de shot. Cuatro vasos de shot.",
+      "category": "Vasos",
+      "price": 50,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 100,
+      "thumbnail": "https://yeti-webmedia.imgix.net/m/612d7f4891079699/W-site_studio_drinkware_Shot_Glass_Rescue_Red_Front_Single_9810_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+      "images": [
+        "https://yeti-webmedia.imgix.net/m/758f06e41f0ba101/W-site_studio_drinkware_Shot_Glass_Tropical_Pink_Front_Single_9814_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/7e91ba56eef7299e/W-site_studio_drinkware_Shot_Glass_Navy_Front_Single_9810_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/5a7ef76a2c6e2080/W-site_studio_drinkware_Shot_Glass_Black_Front_Single_9810_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/4356e2c732fa1c2c/W-site_studio_drinkware_Shot_Glass_White_Front_Single_9814_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/42b8d0c9d9ce842/W-site_studio_drinkware_Shot_Glass_Stainless_Steel_Front_Single_9813_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846",
+        "https://yeti-webmedia.imgix.net/m/612d7f4891079699/W-site_studio_drinkware_Shot_Glass_Rescue_Red_Front_Single_9810_Primary_B_2400x2400.png?bg=0fff&auto=format&w=846&h=846"
+      ]
     }
   ]
 }

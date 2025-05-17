@@ -9,9 +9,9 @@
             elevation="0"
             style="padding: 60px 40px 0px 120px"
           >
-            <v-card-title class="font-weight-bold py-0">Proceso de Pedido</v-card-title>
+            <v-card-title class="font-weight-bold py-0">Check-out </v-card-title>
 
-            <v-breadcrumbs :items="['Carrito', 'Información']" style="font-size: 12px">
+            <v-breadcrumbs :items="['Carrito', 'Check-out']" style="font-size: 12px">
               <template v-slot: divider>
                 <v-icon color="#878484">mdi-chevron-right</v-icon>
               </template>
@@ -188,6 +188,8 @@
             class="checkout-right"
             style="padding: 60px 120px 0px 40px"
           >
+            <h4 class="mt-2 mb-5">Resumen del pedido</h4>
+
             <v-card
               elevation="0"
               v-for="item in cartItems"
@@ -230,7 +232,8 @@
             </v-card>
             <v-divider length="100%" color="black"></v-divider>
             <v-card-text class="d-flex align-center justify-space-between font-weight-bold"
-              ><span>Total </span><span>${{ calcTotalPrice }}</span></v-card-text
+              ><span style="font-size: 18px">Total </span
+              ><span>${{ calcTotalPrice }}</span></v-card-text
             >
           </v-card>
         </v-col>

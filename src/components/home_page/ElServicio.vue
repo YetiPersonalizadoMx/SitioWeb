@@ -2,7 +2,8 @@
   <div class="servicios">
     <v-container>
       <v-row>
-        <v-col cols="12" sm="6" md="4" lg="4">
+        <!-- <v-col cols="12" sm="6" md="4" lg="4"> -->
+        <v-col cols="4" sm="4" md="4" lg="4">
           <div
             class="parent d-flex align-center justify-center flex-column flex-sm-row"
             style="gap: 5px"
@@ -18,10 +19,10 @@
                 d="M3,13.5L2.25,12H7.5L6.9,10.5H2L1.25,9H9.05L8.45,7.5H1.11L0.25,6H4A2,2 0 0,1 6,4H18V8H21L24,12V17H22A3,3 0 0,1 19,20A3,3 0 0,1 16,17H12A3,3 0 0,1 9,20A3,3 0 0,1 6,17H4V13.5H3M19,18.5A1.5,1.5 0 0,0 20.5,17A1.5,1.5 0 0,0 19,15.5A1.5,1.5 0 0,0 17.5,17A1.5,1.5 0 0,0 19,18.5M20.5,9.5H18V12H22.46L20.5,9.5M9,18.5A1.5,1.5 0 0,0 10.5,17A1.5,1.5 0 0,0 9,15.5A1.5,1.5 0 0,0 7.5,17A1.5,1.5 0 0,0 9,18.5Z"
               />
             </svg>
-            <span> Envio Gratis </span>
+            <span> Envío Gratis </span>
           </div>
         </v-col>
-        <v-col cols="12" sm="6" md="4" lg="4">
+        <v-col cols="4" sm="4" md="4" lg="4">
           <div
             class="parent d-flex align-center justify-center segunda flex-column flex-sm-row"
             style="gap: 5px"
@@ -40,7 +41,7 @@
             <span> Precios Justos </span>
           </div>
         </v-col>
-        <v-col cols="12" sm="6" md="4" lg="4">
+        <v-col cols="4" sm="4" md="4" lg="4">
           <div
             class="parent d-flex align-center justify-center flex-column flex-sm-row"
             style="gap: 5px"
@@ -56,7 +57,7 @@
                 d="M11 6H14L17.29 2.7A1 1 0 0 1 18.71 2.7L21.29 5.29A1 1 0 0 1 21.29 6.7L19 9H11V11A1 1 0 0 1 10 12A1 1 0 0 1 9 11V8A2 2 0 0 1 11 6M5 11V15L2.71 17.29A1 1 0 0 0 2.71 18.7L5.29 21.29A1 1 0 0 0 6.71 21.29L11 17H15A1 1 0 0 0 16 16V15H17A1 1 0 0 0 18 14V13H19A1 1 0 0 0 20 12V11H13V12A2 2 0 0 1 11 14H9A2 2 0 0 1 7 12V9Z"
               />
             </svg>
-            <span> Garantia </span>
+            <span> Garantía </span>
           </div>
         </v-col>
       </v-row>
@@ -94,6 +95,7 @@
 
 @media (max-width: 600px) {
   .servicios {
+    display: none;
     .segunda {
       &::before,
       &::after {

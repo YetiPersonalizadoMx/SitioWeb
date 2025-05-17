@@ -326,7 +326,7 @@
                 height="45"
                 class="w-100 mx-0"
                 color="blue"
-                @click="$router.push({ name: 'home' })"
+                @click="$router.push({ name: 'productos' })"
                 >Continuar comprando</v-btn
               >
             </v-card-actions>

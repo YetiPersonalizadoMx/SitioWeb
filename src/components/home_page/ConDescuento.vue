@@ -2,7 +2,7 @@
   <div class="productos-swiper pt-10">
     <div class="title mb-10 px-5 d-flex align-center justify-center justify-space-between">
       <h2 style="font-weight: 200; font-size: 35px" class="text-black">Productos con descuento</h2>
-      <a href="#" class="text-black" style="font-size: 14px">Todos los productos</a>
+      <v-chip @click="$router.push({ name: 'productos' })"> Todos los productos </v-chip>
     </div>
 
     <Swiper

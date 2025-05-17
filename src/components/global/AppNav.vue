@@ -12,7 +12,7 @@
               alt=""
             />
           </v-col>
-          <v-col cols="5" lg="6">
+          <v-col cols="5" lg="6" md="5">
             <div class="position-relative" style="width: 70%">
               <input
                 type="search"
@@ -34,7 +34,7 @@
               </svg>
             </div>
           </v-col>
-          <v-col cols="4" lg="3" class="ps-8">
+          <v-col cols="4" lg="3" md="4" class="ps-0">
             <div class="parent text-white d-flex justify-space-between align-center">
               <v-hover v-slot="{ isHovering, props }">
                 <div v-bind="props">
@@ -73,7 +73,7 @@
                     <svg
                       viewBox="0 0 512 512"
                       class="icon icon-wishlist"
-                      :style="`width: 30px; fill: #5597fa;transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
+                      :style="`width: 32px; fill: #5597fa;transition: 0.5s all ease-in-out; scale: ${isHovering ? 1.2 : 1}`"
                     >
                       <g>
                         <g>
@@ -95,13 +95,13 @@
                       </g>
                     </svg>
 
-                    <span class="mt-1" style="color: #5597fa">Lista de deseos</span>
+                    <span class="" style="color: #5597fa">Me gusta</span>
                   </div>
                 </div>
               </v-hover>
               <v-hover v-slot="{ isHovering, props }">
                 <div v-bind="props">
-                  <v-dialog v-model="dialog" max-width="600">
+                  <v-dialog v-model="dialog2" max-width="600">
                     <template v-slot:activator="{ props: activatorProps }">
                       <v-btn prepend-icon="" stacked v-bind="activatorProps">
                         <svg
@@ -122,12 +122,13 @@
                           ></path>
                         </svg>
                         <span
-                          class="mt-1"
+                          class="mt-1 btn-registrar"
                           style="
                             color: #5597fa;
                             text-transform: none;
                             font-weight: 400;
                             letter-spacing: normal;
+                            font-size: 15px;
                             font-family:
                               system-ui,
                               -apple-system,
@@ -141,11 +142,86 @@
                               'Helvetica Neue',
                               sans-serif;
                           "
-                          >Registrarme</span
+                          >Iniciar Sesion</span
                         ></v-btn
                       >
                     </template>
 
+                    <div>
+                      <v-img
+                        class="mx-auto my-6"
+                        max-width="180"
+                        src="/src/assets/images/logo.jpeg"
+                      ></v-img>
+
+                      <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="448" rounded="lg">
+                        <div class="text-subtitle-1 text-medium-emphasis">Cuenta</div>
+
+                        <v-text-field
+                          density="compact"
+                          placeholder="Mi Email"
+                          prepend-inner-icon="mdi-email-outline"
+                          variant="outlined"
+                        ></v-text-field>
+
+                        <div
+                          class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
+                        >
+                          Contraseña
+
+                          <a
+                            class="text-caption text-decoration-none text-blue"
+                            href="#"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            Olvidé mi contraseña</a
+                          >
+                        </div>
+
+                        <v-text-field
+                          :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+                          :type="visible ? 'text' : 'password'"
+                          density="compact"
+                          placeholder="Ingese su contraseña"
+                          prepend-inner-icon="mdi-lock-outline"
+                          variant="outlined"
+                          @click:append-inner="visible = !visible"
+                        ></v-text-field>
+
+                        <v-card class="mb-12" color="surface-variant" variant="tonal">
+                          <v-card-text class="text-medium-emphasis text-caption">
+                            Atención: Despues de 3 intentos fallidos consecutivos, su cuenta
+                            permanecerá bloqueada por un periodo de 3 horas. Si deseas ingresar
+                            ahora, puedes hacer click en el link "Olvidé mi contraseña", para
+                            reestablecer su contraseña.
+                          </v-card-text>
+                        </v-card>
+
+                        <v-btn
+                          class="mb-8"
+                          color="blue"
+                          size="large"
+                          variant="tonal"
+                          block
+                          @click="dialog2 = false"
+                        >
+                          Inicio de sesión
+                        </v-btn>
+
+                        <v-card-text class="text-center">
+                          <p
+                            style="cursor: pointer"
+                            class="text-blue text-decoration-none"
+                            @click="((dialog2 = false), (dialog = true))"
+                          >
+                            Registrarme <v-icon icon="mdi-chevron-right"></v-icon>
+                          </p>
+                        </v-card-text>
+                      </v-card>
+                    </div>
+                  </v-dialog>
+                  <v-dialog v-model="dialog" max-width="600">
                     <v-card prepend-icon="mdi-account" title="Registro">
                       <v-card-text>
                         <v-row dense>
@@ -315,9 +391,10 @@
 </template>
 <script setup>
 import { shallowRef } from 'vue'
-
 import { useReviewsStore } from '../stores/reviews'
+
 const dialog = shallowRef(false)
+const dialog2 = shallowRef(false)
 const store = useReviewsStore()
 //console.log(store)
 </script>
@@ -342,15 +419,27 @@ export default {
   .parent {
     font-size: 14px;
   }
+  .btn-registrar {
+    font-size: 14px !important;
+  }
 }
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .parent {
     font-size: 12px;
+  }
+  .btn-registrar {
+    font-size: 12px !important;
   }
 }
 @media (max-width: 1100px) {
   .parent {
     font-size: 10px;
   }
+  .btn-registrar {
+    font-size: 10px !important;
+  }
+} */
+.v-theme--light {
+  --v-hover-opacity: 0 !important;
 }
 </style>

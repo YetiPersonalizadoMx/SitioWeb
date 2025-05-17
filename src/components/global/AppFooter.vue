@@ -8,51 +8,198 @@
               <v-card-title style="font-size: 14px; font-weight: 900">
                 MAPA DEL SITIO
               </v-card-title>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                >Inicio de Sesión</v-card-text
-              >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                >Registrarme</v-card-text
-              >
-              <v-card-text
-                class="pt-0 pb-3"
-                style="color: rgb(71, 71, 71); cursor: pointer"
-                @click="$router.push({ name: 'nosotros' })"
-                >Nosotros</v-card-text
-              >
-              <v-card-text
-                class="pt-0 pb-3"
-                style="color: rgb(71, 71, 71); cursor: pointer"
-                @click="$router.push({ name: 'productos' })"
-                >Productos</v-card-text
-              >
+              <v-card-text style="color: rgb(71, 71, 71)" class="pt-0 pb-0">
+                <v-dialog v-model="dialog2" max-width="600">
+                  <template v-slot:activator="{ props: activatorProps }">
+                    <v-chip variant="text" v-bind="activatorProps"> Inicio de sesión </v-chip>
+                  </template>
 
-              <v-card-text
-                class="pt-0 pb-3"
-                style="color: rgb(71, 71, 71); cursor: pointer"
-                @click="$router.push({ name: 'contacto' })"
-                >Contacto</v-card-text
-              >
-              <v-card-text
-                class="pt-0 pb-3"
-                style="color: rgb(71, 71, 71); cursor: pointer"
-                @click="$router.push({ name: 'carrito' })"
-                >Carrito de compras</v-card-text
-              >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  :to="{ name: 'politicas' }"
-                >
-                  Politicas del Sitio</router-link
+                  <div>
+                    <v-img
+                      class="mx-auto my-6"
+                      max-width="180"
+                      src="/src/assets/images/logo.jpeg"
+                    ></v-img>
+
+                    <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="448" rounded="lg">
+                      <div class="text-subtitle-1 text-medium-emphasis">Cuenta</div>
+
+                      <v-text-field
+                        density="compact"
+                        placeholder="Mi Email"
+                        prepend-inner-icon="mdi-email-outline"
+                        variant="outlined"
+                      ></v-text-field>
+
+                      <div
+                        class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
+                      >
+                        Contraseña
+
+                        <a
+                          class="text-caption text-decoration-none text-blue"
+                          href="#"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          Olvidé mi contraseña</a
+                        >
+                      </div>
+
+                      <v-text-field
+                        :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+                        :type="visible ? 'text' : 'password'"
+                        density="compact"
+                        placeholder="Ingese su contraseña"
+                        prepend-inner-icon="mdi-lock-outline"
+                        variant="outlined"
+                        @click:append-inner="visible = !visible"
+                      ></v-text-field>
+
+                      <v-card class="mb-12" color="surface-variant" variant="tonal">
+                        <v-card-text class="text-medium-emphasis text-caption">
+                          Atención: Despues de 3 intentos fallidos consecutivos, su cuenta
+                          permanecerá bloqueada por un periodo de 3 hrs. Si deseas ingresar ahora,
+                          puedes hacer click en el link "Olvidé mi contraseña", para reestablecer su
+                          contraseña.
+                        </v-card-text>
+                      </v-card>
+
+                      <v-btn
+                        class="mb-8"
+                        color="blue"
+                        size="large"
+                        variant="tonal"
+                        block
+                        @click="dialog2 = false"
+                      >
+                        Inicio de sesión
+                      </v-btn>
+
+                      <v-card-text class="text-center">
+                        <p
+                          style="cursor: pointer"
+                          class="text-blue text-decoration-none"
+                          @click="((dialog2 = false), (dialog = true))"
+                        >
+                          Registrarme <v-icon icon="mdi-chevron-right"></v-icon>
+                        </p>
+                      </v-card-text>
+                    </v-card>
+                  </div>
+                </v-dialog>
+              </v-card-text>
+
+              <v-card-text style="color: rgb(71, 71, 71)" class="pt-0 pb-0">
+                <v-dialog v-model="dialog" max-width="600">
+                  <template v-slot:activator="{ props: activatorProps }">
+                    <v-chip variant="text" v-bind="activatorProps"> Registrarme </v-chip>
+                  </template>
+
+                  <v-card prepend-icon="mdi-account" title="Registro">
+                    <v-card-text>
+                      <v-row dense>
+                        <v-col cols="12" md="6" sm="6">
+                          <v-text-field label="Nombre*" required></v-text-field>
+                        </v-col>
+
+                        <v-col cols="12" md="6" sm="6">
+                          <v-text-field label="Apellido*" persistent-hint required></v-text-field>
+                        </v-col>
+
+                        <v-col cols="12" md="4" sm="6">
+                          <v-text-field label="Email*" required></v-text-field>
+                        </v-col>
+
+                        <v-col cols="12" md="4" sm="6">
+                          <v-text-field label="Contraseña*" type="password" required></v-text-field>
+                        </v-col>
+
+                        <v-col cols="12" md="4" sm="6">
+                          <v-text-field
+                            label="Confirma contraseña*"
+                            type="password"
+                            required
+                          ></v-text-field>
+                        </v-col>
+
+                        <v-col cols="12" sm="6">
+                          <v-select
+                            :items="['0-17', '18-29', '30-54', '54+']"
+                            label="Edad*"
+                            required
+                          ></v-select>
+                        </v-col>
+
+                        <v-col cols="12" sm="6">
+                          <v-autocomplete
+                            :items="[
+                              'Bebidas',
+                              'Bolsas y mochilas',
+                              'Hieleras',
+                              'Cubetas',
+                              'Cocina',
+                              'Vestimenta',
+                              'Macotas',
+                              'Exterior',
+                              'Accesorios',
+                            ]"
+                            label="Interes"
+                            auto-select-first
+                            multiple
+                          ></v-autocomplete>
+                        </v-col>
+                      </v-row>
+
+                      <small class="text-caption text-medium-emphasis">*campos requeridos</small>
+                    </v-card-text>
+
+                    <v-divider></v-divider>
+
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+
+                      <v-btn text="Cerrar" variant="plain" @click="dialog = false"></v-btn>
+
+                      <v-btn
+                        color="primary"
+                        text="Guardar"
+                        variant="tonal"
+                        @click="dialog = false"
+                      ></v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-card-text>
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'nosotros' })"
+                  >Nosotros</v-chip
                 ></v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  :to="{ name: 'valoracion' }"
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Productos</v-chip
+                ></v-card-text
+              >
+
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71); cursor: pointer"
+                ><v-chip variant="text" @click="$router.push({ name: 'contacto' })"
+                  >Contacto</v-chip
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'carrito' })"
+                  >Carrito de compras</v-chip
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)">
+                <v-chip variant="text" @click="$router.push({ name: 'politicas' })"
+                  >Políticas del Sitio</v-chip
                 >
-                  Valoración del Sitio</router-link
+              </v-card-text>
+              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">
+                <v-chip variant="text" @click="$router.push({ name: 'valoracion' })"
+                  >Valoración del Sitio</v-chip
                 ></v-card-text
               >
             </v-card>
@@ -60,61 +207,45 @@
 
           <v-col cols="12" sm="6" md="4" lg="3">
             <v-card elevation="0" color="transparent">
-              <v-card-title style="font-size: 14px; font-weight: 900"> CATEGORIAS </v-card-title>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'productos' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Botellas</router-link
+              <v-card-title style="font-size: 14px; font-weight: 900"> CATEGORÍAS </v-card-title>
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Botellas</v-chip
                 >
               </v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'productos' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Vasos</router-link
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Vasos</v-chip
                 ></v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'productos' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Tazas</router-link
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Tazas</v-chip
                 ></v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'productos' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Tarros</router-link
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Tarros</v-chip
                 ></v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'productos' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Prensas</router-link
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Prensas</v-chip
                 ></v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'productos' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Jarras</router-link
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Jarras</v-chip
                 ></v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'productos' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Enfriadores</router-link
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Enfriadores</v-chip
                 ></v-card-text
               >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'productos' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Cocteleras</router-link
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'productos' })"
+                  >Cocteleras</v-chip
                 ></v-card-text
               >
             </v-card>
@@ -122,40 +253,44 @@
           <v-col cols="12" sm="6" md="4" lg="3">
             <v-card elevation="0" color="transparent">
               <v-card-title style="font-size: 14px; font-weight: 900"> CLIENTES </v-card-title>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'faq' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Prefuntas frecuentes</router-link
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'faq' })"
+                  >Preguntas frecuentes</v-chip
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'faq' })"
+                  >Mis pedidos</v-chip
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'faq' })"
+                  >Rastrear pedido</v-chip
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'faq' })"
+                  >Busqueda</v-chip
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'faq' })"
+                  >Consultas</v-chip
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'contacto' })"
+                  >Ubicación</v-chip
+                ></v-card-text
+              >
+              <v-card-text class="pt-0 pb-0" style="color: rgb(71, 71, 71)"
+                ><v-chip variant="text" @click="$router.push({ name: 'faq' })"
+                  >Pagos</v-chip
                 ></v-card-text
               >
               <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                >Mis pedidos</v-card-text
-              >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                >Rastrear pedido</v-card-text
-              >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Busqueda</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)">Consultas</v-card-text>
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'contacto' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Ubicación</router-link
-                ></v-card-text
-              >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'faq' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Pagos</router-link
-                ></v-card-text
-              >
-              <v-card-text class="pt-0 pb-3" style="color: rgb(71, 71, 71)"
-                ><router-link
-                  :to="{ name: 'faq' }"
-                  style="text-decoration: none; color: rgb(71, 71, 71)"
-                  >Garantías</router-link
+                ><v-chip variant="text" @click="$router.push({ name: 'faq' })"
+                  >Garantías</v-chip
                 ></v-card-text
               >
             </v-card>
@@ -272,10 +407,16 @@
         </v-row>
 
         <v-row class="bg-white">
-          <v-col cols="12" class="text-center mt-5">
+          <v-col cols="6" class="mt-2">
             <p style="font-size: 14px; color: rgb(127, 127, 127)">
-              &copy; {{ new Date().getFullYear() }} Todos los derechos reservados Equipo 1 de la
-              Licenciatura de Diseno Web. <br />Ana Gabriela Rizo Llaca <br />
+              &copy; {{ new Date().getFullYear() }} Todos los derechos reservados <br />Licenciatura
+              en Diseño de sistemas web. <br />Proyecto IV <br />
+              Asesora: <br />Lotzy Beatriz Fonseca Chiu
+            </p>
+          </v-col>
+          <v-col cols="6" class="mt-2 text-right">
+            <p style="font-size: 14px; color: rgb(127, 127, 127)">
+              Equipo 1 <br />Ana Gabriela Rizo Llaca <br />
               Christian Jeovany Santos Baltazar <br />Francisco Javier Sandoval Medel
               <br />Francisco Javier Santana Hernandez
             </p>
@@ -285,3 +426,8 @@
     </v-footer>
   </div>
 </template>
+<script setup>
+import { shallowRef } from 'vue'
+const dialog = shallowRef(false)
+const dialog2 = shallowRef(false)
+</script>

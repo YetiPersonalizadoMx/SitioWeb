@@ -9,6 +9,7 @@
             <p class="descuento">Hasta un 20% de descuento en productos seleccionados.</p>
             <v-btn
               variant="outlined"
+              @click="$router.push({ name: 'productos' })"
               style="border-radius: 30px; text-transform: none; height: 40px; width: 140px"
               >Ir a Comprar</v-btn
             >
@@ -21,6 +22,7 @@
             <p class="descuento">Desde un 10% a 20% de descuento en productos seleccionados.</p>
             <v-btn
               variant="outlined"
+              @click="$router.push({ name: 'productos' })"
               style="border-radius: 30px; text-transform: none; height: 40px; width: 140px"
               >Ir a Comprar</v-btn
             >
@@ -33,6 +35,7 @@
             <p class="descuento">Hasta un 10% de descuento en productos seleccionados.</p>
             <v-btn
               variant="outlined"
+              @click="$router.push({ name: 'productos' })"
               style="border-radius: 30px; text-transform: none; height: 40px; width: 140px"
               >Ir a Comprar</v-btn
             >
@@ -44,7 +47,9 @@
     <div class="categorias pt-11">
       <div class="title mb-10 px-5 d-flex align-center justify-center justify-space-between">
         <h2 style="font-weight: 200; font-size: 35px" class="text-black">Categorías</h2>
-        <a href="#" class="text-black" style="font-size: 14px">Todos las categorías</a>
+        <v-chip variant="outlined" @click="$router.push({ name: 'productos' })">
+          Todas las Categorías
+        </v-chip>
       </div>
       <v-container fluid>
         <v-row>

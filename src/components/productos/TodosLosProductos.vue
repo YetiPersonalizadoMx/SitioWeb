@@ -129,8 +129,6 @@
   </div>
 </template>
 <script>
-'swiper'
-
 export default {
   inject: ['Emitter'],
   methods: {

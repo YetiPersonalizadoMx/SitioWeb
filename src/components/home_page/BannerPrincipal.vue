@@ -11,7 +11,7 @@
     <div class="content">
       <v-carousel height="200" :show-arrows="false" cycle hide-delimiter-background hide-delimiters>
         <v-carousel-item>
-          <h1 style="padding-top: 40px; font-size: 80px">BIENVENIDOS</h1>
+          <h1 class="welcome-text" style="padding-top: 40px; font-size: 80px">BIENVENIDOS</h1>
         </v-carousel-item>
         <v-carousel-item>
           <h2>nuevos productos</h2>
@@ -22,6 +22,7 @@
             size="large"
             style="text-transform: none; border-radius: 30px; margin-top: 20px"
             variant="outlined"
+            @click="$router.push({ name: 'productos' })"
           >
             Ver Productos</v-btn
           >
@@ -155,6 +156,11 @@ video {
   video {
     width: auto;
     height: 100%;
+  }
+}
+@media (max-width: 850px) {
+  .welcome-text {
+    font-size: 60px !important;
   }
 }
 </style>
