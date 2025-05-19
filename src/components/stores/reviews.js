@@ -10,7 +10,7 @@ export const useReviewsStore = defineStore('reviews', {
   }),
   actions: {
     async addReview(review) {
-      const response = await fetch(`http://localhost:3000/reviews/`, {
+      const response = await fetch(`https://servidor-8jvc.onrender.com/data/reviews/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,7 +23,9 @@ export const useReviewsStore = defineStore('reviews', {
     },
     async fetchReviews() {
       try {
-        const reviews = await fetch(`http://localhost:3000/reviews?_sort=id&_order=desc`)
+        const reviews = await fetch(
+          `https://servidor-8jvc.onrender.com/data/reviews?_sort=id&_order=desc`,
+        )
         const data = await reviews.json()
         this.reviews = data
         //console.log(data)
@@ -39,7 +41,7 @@ export const useReviewsStore = defineStore('reviews', {
       this.editedData = editedData
     },
     async updateReview(review) {
-      const response = await fetch(`http://localhost:3000/reviews/${review.id}`, {
+      const response = await fetch(`https://servidor-8jvc.onrender.com/data/reviews/${review.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +61,7 @@ export const useReviewsStore = defineStore('reviews', {
       this.editedData = editedData
     },
     async deleteReview(review) {
-      await fetch(`http://localhost:3000/reviews/${review.id}`, {
+      await fetch(`https://servidor-8jvc.onrender.com/data/reviews/${review.id}`, {
         method: 'DELETE',
       })
 

@@ -11,7 +11,8 @@ export const moduloProductos = defineStore('moduloProductos', {
   actions: {
     async getProducts() {
       try {
-        const productos = await fetch(`http://localhost:3000/productos`)
+        //const productos = await fetch(`http://localhost:3000/productos`)
+        const productos = await fetch(`https://servidor-8jvc.onrender.com/data/productos`)
         const datos = await productos.json()
         this.loNuevo = datos.slice(0, 8)
         this.conDescuento = datos.slice(8, 13)
@@ -23,7 +24,10 @@ export const moduloProductos = defineStore('moduloProductos', {
     },
     async getProduct(productId) {
       try {
-        const producto = await fetch(`http://localhost:3000/productos/${productId}`)
+        //const producto = await fetch(`http://localhost:3000/productos/${productId}`)
+        const producto = await fetch(
+          `https://servidor-8jvc.onrender.com/data/productos/${productId}`,
+        )
         const dato = await producto.json()
         this.singleProduct = dato
         //console.log(dato)

@@ -410,7 +410,7 @@
           <v-col cols="6" class="mt-2">
             <p style="font-size: 14px; color: rgb(127, 127, 127)">
               &copy; {{ new Date().getFullYear() }} Todos los derechos reservados <br />Licenciatura
-              en Diseño de sistemas web. <br />Proyecto IV <br />
+              en Desarrollo de sistemas web. <br />Proyecto IV <br />
               Asesora: <br />Lotzy Beatriz Fonseca Chiu
             </p>
           </v-col>
